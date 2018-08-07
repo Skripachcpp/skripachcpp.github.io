@@ -440,13 +440,6 @@ module.exports =
 
 /***/ }),
 
-/***/ "/b59":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "/bsm":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -630,13 +623,6 @@ module.exports =
 
 /***/ }),
 
-/***/ "093b":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "0X8Q":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -718,7 +704,14 @@ module.exports =
 
 /***/ }),
 
-/***/ "1eyE":
+/***/ "19SZ":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "22ra":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -1005,13 +998,6 @@ module.exports =
 
     return sl;
 });
-
-/***/ }),
-
-/***/ "32iL":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "c3b57d916cc339a380e668a109f5c44a.svg";
 
 /***/ }),
 
@@ -2550,6 +2536,13 @@ module.exports = __webpack_require__.p + "c3b57d916cc339a380e668a109f5c44a.svg";
 
 /***/ }),
 
+/***/ "9ofM":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "ALEw":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2612,697 +2605,6 @@ module.exports = __webpack_require__.p + "c3b57d916cc339a380e668a109f5c44a.svg";
 
     return enIe;
 });
-
-/***/ }),
-
-/***/ "AX2D":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "version", function() { return version; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DOM", function() { return DOM; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Children", function() { return Children; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render$1; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createClass", function() { return createClass; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createFactory", function() { return createFactory; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createElement", function() { return createElement; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneElement", function() { return cloneElement$1; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isValidElement", function() { return isValidElement; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "findDOMNode", function() { return findDOMNode; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unmountComponentAtNode", function() { return unmountComponentAtNode; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Component", function() { return Component$1; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PureComponent", function() { return PureComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unstable_renderSubtreeIntoContainer", function() { return renderSubtreeIntoContainer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__spread", function() { return extend; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types__ = __webpack_require__("KSGD");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_preact__ = __webpack_require__("EBst");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_preact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_preact__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "PropTypes", function() { return __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a; });
-
-
-
-var version = '15.1.0'; // trick libraries to think we are react
-
-var ELEMENTS = 'a abbr address area article aside audio b base bdi bdo big blockquote body br button canvas caption cite code col colgroup data datalist dd del details dfn dialog div dl dt em embed fieldset figcaption figure footer form h1 h2 h3 h4 h5 h6 head header hgroup hr html i iframe img input ins kbd keygen label legend li link main map mark menu menuitem meta meter nav noscript object ol optgroup option output p param picture pre progress q rp rt ruby s samp script section select small source span strong style sub summary sup table tbody td textarea tfoot th thead time title tr track u ul var video wbr circle clipPath defs ellipse g image line linearGradient mask path pattern polygon polyline radialGradient rect stop svg text tspan'.split(' ');
-
-var REACT_ELEMENT_TYPE = typeof Symbol !== 'undefined' && Symbol.for && Symbol.for('react.element') || 0xeac7;
-
-var COMPONENT_WRAPPER_KEY = typeof Symbol !== 'undefined' && Symbol.for ? Symbol.for('__preactCompatWrapper') : '__preactCompatWrapper';
-
-// don't autobind these methods since they already have guaranteed context.
-var AUTOBIND_BLACKLIST = {
-	constructor: 1,
-	render: 1,
-	shouldComponentUpdate: 1,
-	componentWillReceiveProps: 1,
-	componentWillUpdate: 1,
-	componentDidUpdate: 1,
-	componentWillMount: 1,
-	componentDidMount: 1,
-	componentWillUnmount: 1,
-	componentDidUnmount: 1
-};
-
-var CAMEL_PROPS = /^(?:accent|alignment|arabic|baseline|cap|clip|color|fill|flood|font|glyph|horiz|marker|overline|paint|stop|strikethrough|stroke|text|underline|unicode|units|v|vector|vert|word|writing|x)[A-Z]/;
-
-var BYPASS_HOOK = {};
-
-/*global process*/
-var DEV = typeof process === 'undefined' || !process.env || "production" !== 'production';
-
-// a component that renders nothing. Used to replace components for unmountComponentAtNode.
-function EmptyComponent() {
-	return null;
-}
-
-// make react think we're react.
-var VNode = Object(__WEBPACK_IMPORTED_MODULE_1_preact__["h"])('a', null).constructor;
-VNode.prototype.$$typeof = REACT_ELEMENT_TYPE;
-VNode.prototype.preactCompatUpgraded = false;
-VNode.prototype.preactCompatNormalized = false;
-
-Object.defineProperty(VNode.prototype, 'type', {
-	get: function get() {
-		return this.nodeName;
-	},
-	set: function set(v) {
-		this.nodeName = v;
-	},
-	configurable: true
-});
-
-Object.defineProperty(VNode.prototype, 'props', {
-	get: function get() {
-		return this.attributes;
-	},
-	set: function set(v) {
-		this.attributes = v;
-	},
-	configurable: true
-});
-
-var oldEventHook = __WEBPACK_IMPORTED_MODULE_1_preact__["options"].event;
-__WEBPACK_IMPORTED_MODULE_1_preact__["options"].event = function (e) {
-	if (oldEventHook) {
-		e = oldEventHook(e);
-	}
-	e.persist = Object;
-	e.nativeEvent = e;
-	return e;
-};
-
-var oldVnodeHook = __WEBPACK_IMPORTED_MODULE_1_preact__["options"].vnode;
-__WEBPACK_IMPORTED_MODULE_1_preact__["options"].vnode = function (vnode) {
-	if (!vnode.preactCompatUpgraded) {
-		vnode.preactCompatUpgraded = true;
-
-		var tag = vnode.nodeName,
-		    attrs = vnode.attributes = extend({}, vnode.attributes);
-
-		if (typeof tag === 'function') {
-			if (tag[COMPONENT_WRAPPER_KEY] === true || tag.prototype && 'isReactComponent' in tag.prototype) {
-				if (vnode.children && String(vnode.children) === '') {
-					vnode.children = undefined;
-				}
-				if (vnode.children) {
-					attrs.children = vnode.children;
-				}
-
-				if (!vnode.preactCompatNormalized) {
-					normalizeVNode(vnode);
-				}
-				handleComponentVNode(vnode);
-			}
-		} else {
-			if (vnode.children && String(vnode.children) === '') {
-				vnode.children = undefined;
-			}
-			if (vnode.children) {
-				attrs.children = vnode.children;
-			}
-
-			if (attrs.defaultValue) {
-				if (!attrs.value && attrs.value !== 0) {
-					attrs.value = attrs.defaultValue;
-				}
-				delete attrs.defaultValue;
-			}
-
-			handleElementVNode(vnode, attrs);
-		}
-	}
-
-	if (oldVnodeHook) {
-		oldVnodeHook(vnode);
-	}
-};
-
-function handleComponentVNode(vnode) {
-	var tag = vnode.nodeName,
-	    a = vnode.attributes;
-
-	vnode.attributes = {};
-	if (tag.defaultProps) {
-		extend(vnode.attributes, tag.defaultProps);
-	}
-	if (a) {
-		extend(vnode.attributes, a);
-	}
-}
-
-function handleElementVNode(vnode, a) {
-	var shouldSanitize, attrs, i;
-	if (a) {
-		for (i in a) {
-			if (shouldSanitize = CAMEL_PROPS.test(i)) {
-				break;
-			}
-		}
-		if (shouldSanitize) {
-			attrs = vnode.attributes = {};
-			for (i in a) {
-				if (a.hasOwnProperty(i)) {
-					attrs[CAMEL_PROPS.test(i) ? i.replace(/([A-Z0-9])/, '-$1').toLowerCase() : i] = a[i];
-				}
-			}
-		}
-	}
-}
-
-// proxy render() since React returns a Component reference.
-function render$1(vnode, parent, callback) {
-	var prev = parent && parent._preactCompatRendered && parent._preactCompatRendered.base;
-
-	// ignore impossible previous renders
-	if (prev && prev.parentNode !== parent) {
-		prev = null;
-	}
-
-	// default to first Element child
-	if (!prev && parent) {
-		prev = parent.firstElementChild;
-	}
-
-	// remove unaffected siblings
-	for (var i = parent.childNodes.length; i--;) {
-		if (parent.childNodes[i] !== prev) {
-			parent.removeChild(parent.childNodes[i]);
-		}
-	}
-
-	var out = Object(__WEBPACK_IMPORTED_MODULE_1_preact__["render"])(vnode, parent, prev);
-	if (parent) {
-		parent._preactCompatRendered = out && (out._component || { base: out });
-	}
-	if (typeof callback === 'function') {
-		callback();
-	}
-	return out && out._component || out;
-}
-
-var ContextProvider = function ContextProvider() {};
-
-ContextProvider.prototype.getChildContext = function () {
-	return this.props.context;
-};
-ContextProvider.prototype.render = function (props) {
-	return props.children[0];
-};
-
-function renderSubtreeIntoContainer(parentComponent, vnode, container, callback) {
-	var wrap = Object(__WEBPACK_IMPORTED_MODULE_1_preact__["h"])(ContextProvider, { context: parentComponent.context }, vnode);
-	var renderContainer = render$1(wrap, container);
-	var component = renderContainer._component || renderContainer.base;
-	if (callback) {
-		callback.call(component, renderContainer);
-	}
-	return component;
-}
-
-function unmountComponentAtNode(container) {
-	var existing = container._preactCompatRendered && container._preactCompatRendered.base;
-	if (existing && existing.parentNode === container) {
-		Object(__WEBPACK_IMPORTED_MODULE_1_preact__["render"])(Object(__WEBPACK_IMPORTED_MODULE_1_preact__["h"])(EmptyComponent), container, existing);
-		return true;
-	}
-	return false;
-}
-
-var ARR = [];
-
-// This API is completely unnecessary for Preact, so it's basically passthrough.
-var Children = {
-	map: function map(children, fn, ctx) {
-		if (children == null) {
-			return null;
-		}
-		children = Children.toArray(children);
-		if (ctx && ctx !== children) {
-			fn = fn.bind(ctx);
-		}
-		return children.map(fn);
-	},
-	forEach: function forEach(children, fn, ctx) {
-		if (children == null) {
-			return null;
-		}
-		children = Children.toArray(children);
-		if (ctx && ctx !== children) {
-			fn = fn.bind(ctx);
-		}
-		children.forEach(fn);
-	},
-	count: function count(children) {
-		return children && children.length || 0;
-	},
-	only: function only(children) {
-		children = Children.toArray(children);
-		if (children.length !== 1) {
-			throw new Error('Children.only() expects only one child.');
-		}
-		return children[0];
-	},
-	toArray: function toArray(children) {
-		if (children == null) {
-			return [];
-		}
-		return ARR.concat(children);
-	}
-};
-
-/** Track current render() component for ref assignment */
-var currentComponent;
-
-function createFactory(type) {
-	return createElement.bind(null, type);
-}
-
-var DOM = {};
-for (var i = ELEMENTS.length; i--;) {
-	DOM[ELEMENTS[i]] = createFactory(ELEMENTS[i]);
-}
-
-function upgradeToVNodes(arr, offset) {
-	for (var i = offset || 0; i < arr.length; i++) {
-		var obj = arr[i];
-		if (Array.isArray(obj)) {
-			upgradeToVNodes(obj);
-		} else if (obj && typeof obj === 'object' && !isValidElement(obj) && (obj.props && obj.type || obj.attributes && obj.nodeName || obj.children)) {
-			arr[i] = createElement(obj.type || obj.nodeName, obj.props || obj.attributes, obj.children);
-		}
-	}
-}
-
-function isStatelessComponent(c) {
-	return typeof c === 'function' && !(c.prototype && c.prototype.render);
-}
-
-// wraps stateless functional components in a PropTypes validator
-function wrapStatelessComponent(WrappedComponent) {
-	return createClass({
-		displayName: WrappedComponent.displayName || WrappedComponent.name,
-		render: function render() {
-			return WrappedComponent(this.props, this.context);
-		}
-	});
-}
-
-function statelessComponentHook(Ctor) {
-	var Wrapped = Ctor[COMPONENT_WRAPPER_KEY];
-	if (Wrapped) {
-		return Wrapped === true ? Ctor : Wrapped;
-	}
-
-	Wrapped = wrapStatelessComponent(Ctor);
-
-	Object.defineProperty(Wrapped, COMPONENT_WRAPPER_KEY, { configurable: true, value: true });
-	Wrapped.displayName = Ctor.displayName;
-	Wrapped.propTypes = Ctor.propTypes;
-	Wrapped.defaultProps = Ctor.defaultProps;
-
-	Object.defineProperty(Ctor, COMPONENT_WRAPPER_KEY, { configurable: true, value: Wrapped });
-
-	return Wrapped;
-}
-
-function createElement() {
-	var args = [],
-	    len = arguments.length;
-	while (len--) {
-		args[len] = arguments[len];
-	}upgradeToVNodes(args, 2);
-	return normalizeVNode(__WEBPACK_IMPORTED_MODULE_1_preact__["h"].apply(void 0, args));
-}
-
-function normalizeVNode(vnode) {
-	vnode.preactCompatNormalized = true;
-
-	applyClassName(vnode);
-
-	if (isStatelessComponent(vnode.nodeName)) {
-		vnode.nodeName = statelessComponentHook(vnode.nodeName);
-	}
-
-	var ref = vnode.attributes.ref,
-	    type = ref && typeof ref;
-	if (currentComponent && (type === 'string' || type === 'number')) {
-		vnode.attributes.ref = createStringRefProxy(ref, currentComponent);
-	}
-
-	applyEventNormalization(vnode);
-
-	return vnode;
-}
-
-function cloneElement$1(element, props) {
-	var children = [],
-	    len = arguments.length - 2;
-	while (len-- > 0) {
-		children[len] = arguments[len + 2];
-	}if (!isValidElement(element)) {
-		return element;
-	}
-	var elementProps = element.attributes || element.props;
-	var node = Object(__WEBPACK_IMPORTED_MODULE_1_preact__["h"])(element.nodeName || element.type, extend({}, elementProps), element.children || elementProps && elementProps.children);
-	// Only provide the 3rd argument if needed.
-	// Arguments 3+ overwrite element.children in preactCloneElement
-	var cloneArgs = [node, props];
-	if (children && children.length) {
-		cloneArgs.push(children);
-	} else if (props && props.children) {
-		cloneArgs.push(props.children);
-	}
-	return normalizeVNode(__WEBPACK_IMPORTED_MODULE_1_preact__["cloneElement"].apply(void 0, cloneArgs));
-}
-
-function isValidElement(element) {
-	return element && (element instanceof VNode || element.$$typeof === REACT_ELEMENT_TYPE);
-}
-
-function createStringRefProxy(name, component) {
-	return component._refProxies[name] || (component._refProxies[name] = function (resolved) {
-		if (component && component.refs) {
-			component.refs[name] = resolved;
-			if (resolved === null) {
-				delete component._refProxies[name];
-				component = null;
-			}
-		}
-	});
-}
-
-function applyEventNormalization(ref) {
-	var nodeName = ref.nodeName;
-	var attributes = ref.attributes;
-
-	if (!attributes || typeof nodeName !== 'string') {
-		return;
-	}
-	var props = {};
-	for (var i in attributes) {
-		props[i.toLowerCase()] = i;
-	}
-	if (props.ondoubleclick) {
-		attributes.ondblclick = attributes[props.ondoubleclick];
-		delete attributes[props.ondoubleclick];
-	}
-	// for *textual inputs* (incl textarea), normalize `onChange` -> `onInput`:
-	if (props.onchange && (nodeName === 'textarea' || nodeName.toLowerCase() === 'input' && !/^fil|che|rad/i.test(attributes.type))) {
-		var normalized = props.oninput || 'oninput';
-		if (!attributes[normalized]) {
-			attributes[normalized] = multihook([attributes[normalized], attributes[props.onchange]]);
-			delete attributes[props.onchange];
-		}
-	}
-}
-
-function applyClassName(vnode) {
-	var a = vnode.attributes || (vnode.attributes = {});
-	classNameDescriptor.enumerable = 'className' in a;
-	if (a.className) {
-		a.class = a.className;
-	}
-	Object.defineProperty(a, 'className', classNameDescriptor);
-}
-
-var classNameDescriptor = {
-	configurable: true,
-	get: function get() {
-		return this.class;
-	},
-	set: function set(v) {
-		this.class = v;
-	}
-};
-
-function extend(base, props) {
-	var arguments$1 = arguments;
-
-	for (var i = 1, obj = void 0; i < arguments.length; i++) {
-		if (obj = arguments$1[i]) {
-			for (var key in obj) {
-				if (obj.hasOwnProperty(key)) {
-					base[key] = obj[key];
-				}
-			}
-		}
-	}
-	return base;
-}
-
-function shallowDiffers(a, b) {
-	for (var i in a) {
-		if (!(i in b)) {
-			return true;
-		}
-	}
-	for (var i$1 in b) {
-		if (a[i$1] !== b[i$1]) {
-			return true;
-		}
-	}
-	return false;
-}
-
-function findDOMNode(component) {
-	return component && component.base || component;
-}
-
-function F() {}
-
-function createClass(obj) {
-	function cl(props, context) {
-		bindAll(this);
-		Component$1.call(this, props, context, BYPASS_HOOK);
-		newComponentHook.call(this, props, context);
-	}
-
-	obj = extend({ constructor: cl }, obj);
-
-	// We need to apply mixins here so that getDefaultProps is correctly mixed
-	if (obj.mixins) {
-		applyMixins(obj, collateMixins(obj.mixins));
-	}
-	if (obj.statics) {
-		extend(cl, obj.statics);
-	}
-	if (obj.propTypes) {
-		cl.propTypes = obj.propTypes;
-	}
-	if (obj.defaultProps) {
-		cl.defaultProps = obj.defaultProps;
-	}
-	if (obj.getDefaultProps) {
-		cl.defaultProps = obj.getDefaultProps.call(cl);
-	}
-
-	F.prototype = Component$1.prototype;
-	cl.prototype = extend(new F(), obj);
-
-	cl.displayName = obj.displayName || 'Component';
-
-	return cl;
-}
-
-// Flatten an Array of mixins to a map of method name to mixin implementations
-function collateMixins(mixins) {
-	var keyed = {};
-	for (var i = 0; i < mixins.length; i++) {
-		var mixin = mixins[i];
-		for (var key in mixin) {
-			if (mixin.hasOwnProperty(key) && typeof mixin[key] === 'function') {
-				(keyed[key] || (keyed[key] = [])).push(mixin[key]);
-			}
-		}
-	}
-	return keyed;
-}
-
-// apply a mapping of Arrays of mixin methods to a component prototype
-function applyMixins(proto, mixins) {
-	for (var key in mixins) {
-		if (mixins.hasOwnProperty(key)) {
-			proto[key] = multihook(mixins[key].concat(proto[key] || ARR), key === 'getDefaultProps' || key === 'getInitialState' || key === 'getChildContext');
-		}
-	}
-}
-
-function bindAll(ctx) {
-	for (var i in ctx) {
-		var v = ctx[i];
-		if (typeof v === 'function' && !v.__bound && !AUTOBIND_BLACKLIST.hasOwnProperty(i)) {
-			(ctx[i] = v.bind(ctx)).__bound = true;
-		}
-	}
-}
-
-function callMethod(ctx, m, args) {
-	if (typeof m === 'string') {
-		m = ctx.constructor.prototype[m];
-	}
-	if (typeof m === 'function') {
-		return m.apply(ctx, args);
-	}
-}
-
-function multihook(hooks, skipDuplicates) {
-	return function () {
-		var arguments$1 = arguments;
-		var this$1 = this;
-
-		var ret;
-		for (var i = 0; i < hooks.length; i++) {
-			var r = callMethod(this$1, hooks[i], arguments$1);
-
-			if (skipDuplicates && r != null) {
-				if (!ret) {
-					ret = {};
-				}
-				for (var key in r) {
-					if (r.hasOwnProperty(key)) {
-						ret[key] = r[key];
-					}
-				}
-			} else if (typeof r !== 'undefined') {
-				ret = r;
-			}
-		}
-		return ret;
-	};
-}
-
-function newComponentHook(props, context) {
-	propsHook.call(this, props, context);
-	this.componentWillReceiveProps = multihook([propsHook, this.componentWillReceiveProps || 'componentWillReceiveProps']);
-	this.render = multihook([propsHook, beforeRender, this.render || 'render', afterRender]);
-}
-
-function propsHook(props, context) {
-	if (!props) {
-		return;
-	}
-
-	// React annoyingly special-cases single children, and some react components are ridiculously strict about this.
-	var c = props.children;
-	if (c && Array.isArray(c) && c.length === 1 && (typeof c[0] === 'string' || typeof c[0] === 'function' || c[0] instanceof VNode)) {
-		props.children = c[0];
-
-		// but its totally still going to be an Array.
-		if (props.children && typeof props.children === 'object') {
-			props.children.length = 1;
-			props.children[0] = props.children;
-		}
-	}
-
-	// add proptype checking
-	if (DEV) {
-		var ctor = typeof this === 'function' ? this : this.constructor,
-		    propTypes = this.propTypes || ctor.propTypes;
-		var displayName = this.displayName || ctor.name;
-
-		if (propTypes) {
-			__WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.checkPropTypes(propTypes, props, 'prop', displayName);
-		}
-	}
-}
-
-function beforeRender(props) {
-	currentComponent = this;
-}
-
-function afterRender() {
-	if (currentComponent === this) {
-		currentComponent = null;
-	}
-}
-
-function Component$1(props, context, opts) {
-	__WEBPACK_IMPORTED_MODULE_1_preact__["Component"].call(this, props, context);
-	this.state = this.getInitialState ? this.getInitialState() : {};
-	this.refs = {};
-	this._refProxies = {};
-	if (opts !== BYPASS_HOOK) {
-		newComponentHook.call(this, props, context);
-	}
-}
-extend(Component$1.prototype = new __WEBPACK_IMPORTED_MODULE_1_preact__["Component"](), {
-	constructor: Component$1,
-
-	isReactComponent: {},
-
-	replaceState: function replaceState(state, callback) {
-		var this$1 = this;
-
-		this.setState(state, callback);
-		for (var i in this$1.state) {
-			if (!(i in state)) {
-				delete this$1.state[i];
-			}
-		}
-	},
-
-	getDOMNode: function getDOMNode() {
-		return this.base;
-	},
-
-	isMounted: function isMounted() {
-		return !!this.base;
-	}
-});
-
-function PureComponent(props, context) {
-	Component$1.call(this, props, context);
-}
-F.prototype = Component$1.prototype;
-PureComponent.prototype = new F();
-PureComponent.prototype.isPureReactComponent = true;
-PureComponent.prototype.shouldComponentUpdate = function (props, state) {
-	return shallowDiffers(this.props, props) || shallowDiffers(this.state, state);
-};
-
-var index = {
-	version: version,
-	DOM: DOM,
-	PropTypes: __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a,
-	Children: Children,
-	render: render$1,
-	createClass: createClass,
-	createFactory: createFactory,
-	createElement: createElement,
-	cloneElement: cloneElement$1,
-	isValidElement: isValidElement,
-	findDOMNode: findDOMNode,
-	unmountComponentAtNode: unmountComponentAtNode,
-	Component: Component$1,
-	PureComponent: PureComponent,
-	unstable_renderSubtreeIntoContainer: renderSubtreeIntoContainer,
-	__spread: extend
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (index);
-//# sourceMappingURL=preact-compat.es.js.map
 
 /***/ }),
 
@@ -3710,13 +3012,6 @@ var index = {
 
 /***/ }),
 
-/***/ "C66E":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "C7av":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4119,6 +3414,13 @@ var index = {
 
     return sw;
 });
+
+/***/ }),
+
+/***/ "Dc2o":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "5bde851b660edc63548478dbeef97498.svg";
 
 /***/ }),
 
@@ -5042,13 +4344,6 @@ var index = {
 
 /***/ }),
 
-/***/ "GCfV":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "GrS7":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5205,10 +4500,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 /***/ }),
 
-/***/ "HdW0":
-/***/ (function(module, exports) {
+/***/ "He2Z":
+/***/ (function(module, exports, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+module.exports = __webpack_require__.p + "3365d73921c8d4d2c0a6b5ef8cd8d9ac.svg";
 
 /***/ }),
 
@@ -5296,13 +4591,6 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 /***/ }),
 
-/***/ "It0k":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "JkW7":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5313,216 +4601,782 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var preact_min = __webpack_require__("EBst");
 var preact_min_default = /*#__PURE__*/__webpack_require__.n(preact_min);
 
-// EXTERNAL MODULE: ./node_modules/preact-compat/dist/preact-compat.es.js
-var preact_compat_es = __webpack_require__("AX2D");
-
-// EXTERNAL MODULE: ./node_modules/classnames/index.js
-var classnames = __webpack_require__("HW6M");
-var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
-
 // EXTERNAL MODULE: ./node_modules/prop-types/index.js
 var prop_types = __webpack_require__("KSGD");
 var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
 
-// EXTERNAL MODULE: ./src/common/NextBack.sass
-var NextBack = __webpack_require__("WlHs");
-var NextBack_default = /*#__PURE__*/__webpack_require__.n(NextBack);
-
-// EXTERNAL MODULE: ./src/common/img/Icon.sass
-var img_Icon = __webpack_require__("SJyb");
-var Icon_default = /*#__PURE__*/__webpack_require__.n(img_Icon);
-
-// CONCATENATED MODULE: ./src/common/img/Icon.jsx
-
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// CONCATENATED MODULE: ./node_modules/preact-compat/dist/preact-compat.es.js
 
 
 
 
+var version = '15.1.0'; // trick libraries to think we are react
 
+var ELEMENTS = 'a abbr address area article aside audio b base bdi bdo big blockquote body br button canvas caption cite code col colgroup data datalist dd del details dfn dialog div dl dt em embed fieldset figcaption figure footer form h1 h2 h3 h4 h5 h6 head header hgroup hr html i iframe img input ins kbd keygen label legend li link main map mark menu menuitem meta meter nav noscript object ol optgroup option output p param picture pre progress q rp rt ruby s samp script section select small source span strong style sub summary sup table tbody td textarea tfoot th thead time title tr track u ul var video wbr circle clipPath defs ellipse g image line linearGradient mask path pattern polygon polyline radialGradient rect stop svg text tspan'.split(' ');
 
-var Icon_Icon = function (_React$Component) {
-  _inherits(Icon, _React$Component);
+var REACT_ELEMENT_TYPE = typeof Symbol !== 'undefined' && Symbol.for && Symbol.for('react.element') || 0xeac7;
 
-  function Icon() {
-    _classCallCheck(this, Icon);
+var COMPONENT_WRAPPER_KEY = typeof Symbol !== 'undefined' && Symbol.for ? Symbol.for('__preactCompatWrapper') : '__preactCompatWrapper';
 
-    return _possibleConstructorReturn(this, _React$Component.apply(this, arguments));
-  }
-
-  Icon.prototype.render = function render() {
-    var _props = this.props,
-        children = _props.children,
-        cnBox = _props.className,
-        icon = _props.icon,
-        onClick = _props.onClick;
-
-    return Object(preact_min["h"])(
-      'div',
-      {
-        className: classnames_default()('icon', cnBox),
-        style: { backgroundImage: 'url(' + icon + ')' },
-        onClick: onClick
-      },
-      children
-    );
-  };
-
-  return Icon;
-}(preact_compat_es["default"].Component);
-
-Icon_Icon.porpTypes = {
-  icon: prop_types_default.a.any,
-  children: prop_types_default.a.any,
-  className: prop_types_default.a.string,
-  onClick: prop_types_default.a.func
+// don't autobind these methods since they already have guaranteed context.
+var AUTOBIND_BLACKLIST = {
+	constructor: 1,
+	render: 1,
+	shouldComponentUpdate: 1,
+	componentWillReceiveProps: 1,
+	componentWillUpdate: 1,
+	componentDidUpdate: 1,
+	componentWillMount: 1,
+	componentDidMount: 1,
+	componentWillUnmount: 1,
+	componentDidUnmount: 1
 };
 
-/* harmony default export */ var common_img_Icon = (Icon_Icon);
-// EXTERNAL MODULE: ./src/common/img/svg/baseline-keyboard_arrow_left-24px.svg
-var baseline_keyboard_arrow_left_24px = __webpack_require__("gIi0");
-var baseline_keyboard_arrow_left_24px_default = /*#__PURE__*/__webpack_require__.n(baseline_keyboard_arrow_left_24px);
+var CAMEL_PROPS = /^(?:accent|alignment|arabic|baseline|cap|clip|color|fill|flood|font|glyph|horiz|marker|overline|paint|stop|strikethrough|stroke|text|underline|unicode|units|v|vector|vert|word|writing|x)[A-Z]/;
 
-// CONCATENATED MODULE: ./src/common/img/LeftIcon.jsx
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var BYPASS_HOOK = {};
 
+/*global process*/
+var DEV = typeof process !== 'undefined' && process.env && "production" !== 'production';
 
-
-function LeftIcon__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function LeftIcon__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function LeftIcon__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-
-
-var LeftIcon_LeftIcon = function (_React$Component) {
-  LeftIcon__inherits(LeftIcon, _React$Component);
-
-  function LeftIcon() {
-    LeftIcon__classCallCheck(this, LeftIcon);
-
-    return LeftIcon__possibleConstructorReturn(this, _React$Component.apply(this, arguments));
-  }
-
-  LeftIcon.prototype.render = function render() {
-    var p = _extends({}, this.props, { className: classnames_default()('px14', this.props.className) });
-    return Object(preact_min["h"])(
-      'div',
-      { className: classnames_default()('px24', 'center', 'left5px') },
-      Object(preact_min["h"])(common_img_Icon, _extends({ icon: baseline_keyboard_arrow_left_24px_default.a }, p))
-    );
-  };
-
-  return LeftIcon;
-}(preact_compat_es["default"].Component);
-
-LeftIcon_LeftIcon.porpTypes = {
-  children: prop_types_default.a.any,
-  className: prop_types_default.a.string
-};
-
-/* harmony default export */ var img_LeftIcon = (LeftIcon_LeftIcon);
-// EXTERNAL MODULE: ./src/common/img/svg/baseline-keyboard_arrow_right-24px.svg
-var baseline_keyboard_arrow_right_24px = __webpack_require__("ZPhz");
-var baseline_keyboard_arrow_right_24px_default = /*#__PURE__*/__webpack_require__.n(baseline_keyboard_arrow_right_24px);
-
-// CONCATENATED MODULE: ./src/common/img/RightIcon.jsx
-var RightIcon__extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-
-
-function RightIcon__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function RightIcon__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function RightIcon__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-
-
-var RightIcon_RightIcon = function (_React$Component) {
-  RightIcon__inherits(RightIcon, _React$Component);
-
-  function RightIcon() {
-    RightIcon__classCallCheck(this, RightIcon);
-
-    return RightIcon__possibleConstructorReturn(this, _React$Component.apply(this, arguments));
-  }
-
-  RightIcon.prototype.render = function render() {
-    var p = RightIcon__extends({}, this.props, { className: classnames_default()('px14', this.props.className) });
-    return Object(preact_min["h"])(
-      'div',
-      { className: classnames_default()('px24', 'right', 'right5px') },
-      Object(preact_min["h"])(common_img_Icon, RightIcon__extends({ icon: baseline_keyboard_arrow_right_24px_default.a }, p))
-    );
-  };
-
-  return RightIcon;
-}(preact_compat_es["default"].Component);
-
-RightIcon_RightIcon.porpTypes = {
-  children: prop_types_default.a.any,
-  className: prop_types_default.a.string,
-  onClick: prop_types_default.a.func
-};
-
-/* harmony default export */ var img_RightIcon = (RightIcon_RightIcon);
-// CONCATENATED MODULE: ./src/common/NextBack.jsx
-
-
-
-
-
-
-
-var NextBack__ref = Object(preact_min["h"])(img_LeftIcon, { className: 'nextbackGoLeftRightIcon' });
-
-function NextBack_NextBack(props) {
-  var children = props.children,
-      onNext = props.onNext,
-      onBack = props.onBack,
-      cnBox = props.className;
-
-  return Object(preact_min["h"])(
-    'div',
-    { className: classnames_default()('nextbackBox', 'nextbackHeaderStyle', cnBox, 'teamCalendarTitle') },
-    Object(preact_min["h"])(
-      'div',
-      { onClick: onBack },
-      NextBack__ref
-    ),
-    Object(preact_min["h"])(
-      'div',
-      null,
-      Object(preact_min["h"])(
-        'div',
-        { className: classnames_default()('nextbackHeader', 'teamCalendarTitleLocation') },
-        children
-      )
-    ),
-    Object(preact_min["h"])(img_RightIcon, { onClick: onNext, className: 'nextbackGoLeftRightIcon' })
-  );
+// a component that renders nothing. Used to replace components for unmountComponentAtNode.
+function EmptyComponent() {
+	return null;
 }
 
-/* harmony default export */ var common_NextBack = (NextBack_NextBack);
-// EXTERNAL MODULE: ./src/common/Months.sass
-var common_Months = __webpack_require__("PsOw");
-var Months_default = /*#__PURE__*/__webpack_require__.n(common_Months);
+// make react think we're react.
+var VNode = Object(preact_min["h"])('a', null).constructor;
+VNode.prototype.$$typeof = REACT_ELEMENT_TYPE;
+VNode.prototype.preactCompatUpgraded = false;
+VNode.prototype.preactCompatNormalized = false;
 
+Object.defineProperty(VNode.prototype, 'type', {
+	get: function get() {
+		return this.nodeName;
+	},
+	set: function set(v) {
+		this.nodeName = v;
+	},
+	configurable: true
+});
+
+Object.defineProperty(VNode.prototype, 'props', {
+	get: function get() {
+		return this.attributes;
+	},
+	set: function set(v) {
+		this.attributes = v;
+	},
+	configurable: true
+});
+
+var oldEventHook = preact_min["options"].event;
+preact_min["options"].event = function (e) {
+	if (oldEventHook) {
+		e = oldEventHook(e);
+	}
+	e.persist = Object;
+	e.nativeEvent = e;
+	return e;
+};
+
+var oldVnodeHook = preact_min["options"].vnode;
+preact_min["options"].vnode = function (vnode) {
+	if (!vnode.preactCompatUpgraded) {
+		vnode.preactCompatUpgraded = true;
+
+		var tag = vnode.nodeName,
+		    attrs = vnode.attributes = vnode.attributes == null ? {} : extend({}, vnode.attributes);
+
+		if (typeof tag === 'function') {
+			if (tag[COMPONENT_WRAPPER_KEY] === true || tag.prototype && 'isReactComponent' in tag.prototype) {
+				if (vnode.children && String(vnode.children) === '') {
+					vnode.children = undefined;
+				}
+				if (vnode.children) {
+					attrs.children = vnode.children;
+				}
+
+				if (!vnode.preactCompatNormalized) {
+					normalizeVNode(vnode);
+				}
+				handleComponentVNode(vnode);
+			}
+		} else {
+			if (vnode.children && String(vnode.children) === '') {
+				vnode.children = undefined;
+			}
+			if (vnode.children) {
+				attrs.children = vnode.children;
+			}
+
+			if (attrs.defaultValue) {
+				if (!attrs.value && attrs.value !== 0) {
+					attrs.value = attrs.defaultValue;
+				}
+				delete attrs.defaultValue;
+			}
+
+			handleElementVNode(vnode, attrs);
+		}
+	}
+
+	if (oldVnodeHook) {
+		oldVnodeHook(vnode);
+	}
+};
+
+function handleComponentVNode(vnode) {
+	var tag = vnode.nodeName,
+	    a = vnode.attributes;
+
+	vnode.attributes = {};
+	if (tag.defaultProps) {
+		extend(vnode.attributes, tag.defaultProps);
+	}
+	if (a) {
+		extend(vnode.attributes, a);
+	}
+}
+
+function handleElementVNode(vnode, a) {
+	var shouldSanitize, attrs, i;
+	if (a) {
+		for (i in a) {
+			if (shouldSanitize = CAMEL_PROPS.test(i)) {
+				break;
+			}
+		}
+		if (shouldSanitize) {
+			attrs = vnode.attributes = {};
+			for (i in a) {
+				if (a.hasOwnProperty(i)) {
+					attrs[CAMEL_PROPS.test(i) ? i.replace(/([A-Z0-9])/, '-$1').toLowerCase() : i] = a[i];
+				}
+			}
+		}
+	}
+}
+
+// proxy render() since React returns a Component reference.
+function render$1(vnode, parent, callback) {
+	var prev = parent && parent._preactCompatRendered && parent._preactCompatRendered.base;
+
+	// ignore impossible previous renders
+	if (prev && prev.parentNode !== parent) {
+		prev = null;
+	}
+
+	// default to first Element child
+	if (!prev && parent) {
+		prev = parent.firstElementChild;
+	}
+
+	// remove unaffected siblings
+	for (var i = parent.childNodes.length; i--;) {
+		if (parent.childNodes[i] !== prev) {
+			parent.removeChild(parent.childNodes[i]);
+		}
+	}
+
+	var out = Object(preact_min["render"])(vnode, parent, prev);
+	if (parent) {
+		parent._preactCompatRendered = out && (out._component || { base: out });
+	}
+	if (typeof callback === 'function') {
+		callback();
+	}
+	return out && out._component || out;
+}
+
+var ContextProvider = function ContextProvider() {};
+
+ContextProvider.prototype.getChildContext = function () {
+	return this.props.context;
+};
+ContextProvider.prototype.render = function (props) {
+	return props.children[0];
+};
+
+function renderSubtreeIntoContainer(parentComponent, vnode, container, callback) {
+	var wrap = Object(preact_min["h"])(ContextProvider, { context: parentComponent.context }, vnode);
+	var renderContainer = render$1(wrap, container);
+	var component = renderContainer._component || renderContainer.base;
+	if (callback) {
+		callback.call(component, renderContainer);
+	}
+	return component;
+}
+
+function Portal(props) {
+	renderSubtreeIntoContainer(this, props.vnode, props.container);
+}
+
+function createPortal(vnode, container) {
+	return Object(preact_min["h"])(Portal, { vnode: vnode, container: container });
+}
+
+function unmountComponentAtNode(container) {
+	var existing = container._preactCompatRendered && container._preactCompatRendered.base;
+	if (existing && existing.parentNode === container) {
+		Object(preact_min["render"])(Object(preact_min["h"])(EmptyComponent), container, existing);
+		return true;
+	}
+	return false;
+}
+
+var ARR = [];
+
+// This API is completely unnecessary for Preact, so it's basically passthrough.
+var Children = {
+	map: function map(children, fn, ctx) {
+		if (children == null) {
+			return null;
+		}
+		children = Children.toArray(children);
+		if (ctx && ctx !== children) {
+			fn = fn.bind(ctx);
+		}
+		return children.map(fn);
+	},
+	forEach: function forEach(children, fn, ctx) {
+		if (children == null) {
+			return null;
+		}
+		children = Children.toArray(children);
+		if (ctx && ctx !== children) {
+			fn = fn.bind(ctx);
+		}
+		children.forEach(fn);
+	},
+	count: function count(children) {
+		return children && children.length || 0;
+	},
+	only: function only(children) {
+		children = Children.toArray(children);
+		if (children.length !== 1) {
+			throw new Error('Children.only() expects only one child.');
+		}
+		return children[0];
+	},
+	toArray: function toArray(children) {
+		if (children == null) {
+			return [];
+		}
+		return ARR.concat(children);
+	}
+};
+
+/** Track current render() component for ref assignment */
+var currentComponent;
+
+function createFactory(type) {
+	return createElement.bind(null, type);
+}
+
+var DOM = {};
+for (var preact_compat_es_i = ELEMENTS.length; preact_compat_es_i--;) {
+	DOM[ELEMENTS[preact_compat_es_i]] = createFactory(ELEMENTS[preact_compat_es_i]);
+}
+
+function upgradeToVNodes(arr, offset) {
+	for (var i = offset || 0; i < arr.length; i++) {
+		var obj = arr[i];
+		if (Array.isArray(obj)) {
+			upgradeToVNodes(obj);
+		} else if (obj && typeof obj === 'object' && !isValidElement(obj) && (obj.props && obj.type || obj.attributes && obj.nodeName || obj.children)) {
+			arr[i] = createElement(obj.type || obj.nodeName, obj.props || obj.attributes, obj.children);
+		}
+	}
+}
+
+function isStatelessComponent(c) {
+	return typeof c === 'function' && !(c.prototype && c.prototype.render);
+}
+
+// wraps stateless functional components in a PropTypes validator
+function wrapStatelessComponent(WrappedComponent) {
+	return createClass({
+		displayName: WrappedComponent.displayName || WrappedComponent.name,
+		render: function render() {
+			return WrappedComponent(this.props, this.context);
+		}
+	});
+}
+
+function statelessComponentHook(Ctor) {
+	var Wrapped = Ctor[COMPONENT_WRAPPER_KEY];
+	if (Wrapped) {
+		return Wrapped === true ? Ctor : Wrapped;
+	}
+
+	Wrapped = wrapStatelessComponent(Ctor);
+
+	Object.defineProperty(Wrapped, COMPONENT_WRAPPER_KEY, { configurable: true, value: true });
+	Wrapped.displayName = Ctor.displayName;
+	Wrapped.propTypes = Ctor.propTypes;
+	Wrapped.defaultProps = Ctor.defaultProps;
+
+	Object.defineProperty(Ctor, COMPONENT_WRAPPER_KEY, { configurable: true, value: Wrapped });
+
+	return Wrapped;
+}
+
+function createElement() {
+	var args = [],
+	    len = arguments.length;
+	while (len--) {
+		args[len] = arguments[len];
+	}upgradeToVNodes(args, 2);
+	return normalizeVNode(preact_min["h"].apply(void 0, args));
+}
+
+function normalizeVNode(vnode) {
+	vnode.preactCompatNormalized = true;
+
+	applyClassName(vnode);
+
+	if (isStatelessComponent(vnode.nodeName)) {
+		vnode.nodeName = statelessComponentHook(vnode.nodeName);
+	}
+
+	var ref = vnode.attributes.ref,
+	    type = ref && typeof ref;
+	if (currentComponent && (type === 'string' || type === 'number')) {
+		vnode.attributes.ref = createStringRefProxy(ref, currentComponent);
+	}
+
+	applyEventNormalization(vnode);
+
+	return vnode;
+}
+
+function cloneElement$1(element, props) {
+	var children = [],
+	    len = arguments.length - 2;
+	while (len-- > 0) {
+		children[len] = arguments[len + 2];
+	}if (!isValidElement(element)) {
+		return element;
+	}
+	var elementProps = element.attributes || element.props;
+	var node = Object(preact_min["h"])(element.nodeName || element.type, extend({}, elementProps), element.children || elementProps && elementProps.children);
+	// Only provide the 3rd argument if needed.
+	// Arguments 3+ overwrite element.children in preactCloneElement
+	var cloneArgs = [node, props];
+	if (children && children.length) {
+		cloneArgs.push(children);
+	} else if (props && props.children) {
+		cloneArgs.push(props.children);
+	}
+	return normalizeVNode(preact_min["cloneElement"].apply(void 0, cloneArgs));
+}
+
+function isValidElement(element) {
+	return element && (element instanceof VNode || element.$$typeof === REACT_ELEMENT_TYPE);
+}
+
+function createStringRefProxy(name, component) {
+	return component._refProxies[name] || (component._refProxies[name] = function (resolved) {
+		if (component && component.refs) {
+			component.refs[name] = resolved;
+			if (resolved === null) {
+				delete component._refProxies[name];
+				component = null;
+			}
+		}
+	});
+}
+
+function applyEventNormalization(ref) {
+	var nodeName = ref.nodeName;
+	var attributes = ref.attributes;
+
+	if (!attributes || typeof nodeName !== 'string') {
+		return;
+	}
+	var props = {};
+	for (var i in attributes) {
+		props[i.toLowerCase()] = i;
+	}
+	if (props.ondoubleclick) {
+		attributes.ondblclick = attributes[props.ondoubleclick];
+		delete attributes[props.ondoubleclick];
+	}
+	// for *textual inputs* (incl textarea), normalize `onChange` -> `onInput`:
+	if (props.onchange && (nodeName === 'textarea' || nodeName.toLowerCase() === 'input' && !/^fil|che|rad/i.test(attributes.type))) {
+		var normalized = props.oninput || 'oninput';
+		if (!attributes[normalized]) {
+			attributes[normalized] = multihook([attributes[normalized], attributes[props.onchange]]);
+			delete attributes[props.onchange];
+		}
+	}
+}
+
+function applyClassName(vnode) {
+	var a = vnode.attributes || (vnode.attributes = {});
+	classNameDescriptor.enumerable = 'className' in a;
+	if (a.className) {
+		a.class = a.className;
+	}
+	Object.defineProperty(a, 'className', classNameDescriptor);
+}
+
+var classNameDescriptor = {
+	configurable: true,
+	get: function get() {
+		return this.class;
+	},
+	set: function set(v) {
+		this.class = v;
+	}
+};
+
+function extend(base, props) {
+	var arguments$1 = arguments;
+
+	for (var i = 1, obj = void 0; i < arguments.length; i++) {
+		if (obj = arguments$1[i]) {
+			for (var key in obj) {
+				if (obj.hasOwnProperty(key)) {
+					base[key] = obj[key];
+				}
+			}
+		}
+	}
+	return base;
+}
+
+function shallowDiffers(a, b) {
+	for (var i in a) {
+		if (!(i in b)) {
+			return true;
+		}
+	}
+	for (var i$1 in b) {
+		if (a[i$1] !== b[i$1]) {
+			return true;
+		}
+	}
+	return false;
+}
+
+function findDOMNode(component) {
+	return component && component.base || null;
+}
+
+function F() {}
+
+function createClass(obj) {
+	function cl(props, context) {
+		bindAll(this);
+		Component$1.call(this, props, context, BYPASS_HOOK);
+		newComponentHook.call(this, props, context);
+	}
+
+	obj = extend({ constructor: cl }, obj);
+
+	// We need to apply mixins here so that getDefaultProps is correctly mixed
+	if (obj.mixins) {
+		applyMixins(obj, collateMixins(obj.mixins));
+	}
+	if (obj.statics) {
+		extend(cl, obj.statics);
+	}
+	if (obj.propTypes) {
+		cl.propTypes = obj.propTypes;
+	}
+	if (obj.defaultProps) {
+		cl.defaultProps = obj.defaultProps;
+	}
+	if (obj.getDefaultProps) {
+		cl.defaultProps = obj.getDefaultProps.call(cl);
+	}
+
+	F.prototype = Component$1.prototype;
+	cl.prototype = extend(new F(), obj);
+
+	cl.displayName = obj.displayName || 'Component';
+
+	return cl;
+}
+
+// Flatten an Array of mixins to a map of method name to mixin implementations
+function collateMixins(mixins) {
+	var keyed = {};
+	for (var i = 0; i < mixins.length; i++) {
+		var mixin = mixins[i];
+		for (var key in mixin) {
+			if (mixin.hasOwnProperty(key) && typeof mixin[key] === 'function') {
+				(keyed[key] || (keyed[key] = [])).push(mixin[key]);
+			}
+		}
+	}
+	return keyed;
+}
+
+// apply a mapping of Arrays of mixin methods to a component prototype
+function applyMixins(proto, mixins) {
+	for (var key in mixins) {
+		if (mixins.hasOwnProperty(key)) {
+			proto[key] = multihook(mixins[key].concat(proto[key] || ARR), key === 'getDefaultProps' || key === 'getInitialState' || key === 'getChildContext');
+		}
+	}
+}
+
+function bindAll(ctx) {
+	for (var i in ctx) {
+		var v = ctx[i];
+		if (typeof v === 'function' && !v.__bound && !AUTOBIND_BLACKLIST.hasOwnProperty(i)) {
+			(ctx[i] = v.bind(ctx)).__bound = true;
+		}
+	}
+}
+
+function callMethod(ctx, m, args) {
+	if (typeof m === 'string') {
+		m = ctx.constructor.prototype[m];
+	}
+	if (typeof m === 'function') {
+		return m.apply(ctx, args);
+	}
+}
+
+function multihook(hooks, skipDuplicates) {
+	return function () {
+		var arguments$1 = arguments;
+		var this$1 = this;
+
+		var ret;
+		for (var i = 0; i < hooks.length; i++) {
+			var r = callMethod(this$1, hooks[i], arguments$1);
+
+			if (skipDuplicates && r != null) {
+				if (!ret) {
+					ret = {};
+				}
+				for (var key in r) {
+					if (r.hasOwnProperty(key)) {
+						ret[key] = r[key];
+					}
+				}
+			} else if (typeof r !== 'undefined') {
+				ret = r;
+			}
+		}
+		return ret;
+	};
+}
+
+function newComponentHook(props, context) {
+	propsHook.call(this, props, context);
+	this.componentWillReceiveProps = multihook([propsHook, this.componentWillReceiveProps || 'componentWillReceiveProps']);
+	this.render = multihook([propsHook, beforeRender, this.render || 'render', afterRender]);
+}
+
+function propsHook(props, context) {
+	if (!props) {
+		return;
+	}
+
+	// React annoyingly special-cases single children, and some react components are ridiculously strict about this.
+	var c = props.children;
+	if (c && Array.isArray(c) && c.length === 1 && (typeof c[0] === 'string' || typeof c[0] === 'function' || c[0] instanceof VNode)) {
+		props.children = c[0];
+
+		// but its totally still going to be an Array.
+		if (props.children && typeof props.children === 'object') {
+			props.children.length = 1;
+			props.children[0] = props.children;
+		}
+	}
+
+	// add proptype checking
+	if (DEV) {
+		var ctor = typeof this === 'function' ? this : this.constructor,
+		    propTypes = this.propTypes || ctor.propTypes;
+		var displayName = this.displayName || ctor.name;
+
+		if (propTypes) {
+			prop_types_default.a.checkPropTypes(propTypes, props, 'prop', displayName);
+		}
+	}
+}
+
+function beforeRender(props) {
+	currentComponent = this;
+}
+
+function afterRender() {
+	if (currentComponent === this) {
+		currentComponent = null;
+	}
+}
+
+function Component$1(props, context, opts) {
+	preact_min["Component"].call(this, props, context);
+	this.state = this.getInitialState ? this.getInitialState() : {};
+	this.refs = {};
+	this._refProxies = {};
+	if (opts !== BYPASS_HOOK) {
+		newComponentHook.call(this, props, context);
+	}
+}
+extend(Component$1.prototype = new preact_min["Component"](), {
+	constructor: Component$1,
+
+	isReactComponent: {},
+
+	replaceState: function replaceState(state, callback) {
+		var this$1 = this;
+
+		this.setState(state, callback);
+		for (var i in this$1.state) {
+			if (!(i in state)) {
+				delete this$1.state[i];
+			}
+		}
+	},
+
+	getDOMNode: function getDOMNode() {
+		return this.base;
+	},
+
+	isMounted: function isMounted() {
+		return !!this.base;
+	}
+});
+
+function PureComponent(props, context) {
+	Component$1.call(this, props, context);
+}
+F.prototype = Component$1.prototype;
+PureComponent.prototype = new F();
+PureComponent.prototype.isPureReactComponent = true;
+PureComponent.prototype.shouldComponentUpdate = function (props, state) {
+	return shallowDiffers(this.props, props) || shallowDiffers(this.state, state);
+};
+
+function unstable_batchedUpdates(callback) {
+	callback();
+}
+
+var preact_compat_es_index = {
+	version: version,
+	DOM: DOM,
+	PropTypes: prop_types_default.a,
+	Children: Children,
+	render: render$1,
+	createClass: createClass,
+	createPortal: createPortal,
+	createFactory: createFactory,
+	createElement: createElement,
+	cloneElement: cloneElement$1,
+	isValidElement: isValidElement,
+	findDOMNode: findDOMNode,
+	unmountComponentAtNode: unmountComponentAtNode,
+	Component: Component$1,
+	PureComponent: PureComponent,
+	unstable_renderSubtreeIntoContainer: renderSubtreeIntoContainer,
+	unstable_batchedUpdates: unstable_batchedUpdates,
+	__spread: extend
+};
+
+/* harmony default export */ var preact_compat_es = (preact_compat_es_index);
+
+//# sourceMappingURL=preact-compat.es.js.map
+// EXTERNAL MODULE: ./node_modules/classnames/index.js
+var classnames = __webpack_require__("HW6M");
+var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
+
+// CONCATENATED MODULE: ./src/utils/func.js
+function concatEvents(evnts) {
+  if (!evnts || evnts.length <= 0) return function () {};
+  var eventsNotNull = evnts.filter(function (a) {
+    return !!a;
+  });
+  return function (args) {
+    for (var i = 0; i < eventsNotNull.length; i++) {
+      var event = eventsNotNull[i];
+      if (event) event(args);
+    }
+  };
+}
+
+function eventEmitter() {
+  var events = [];
+
+  var eventHandler = function eventHandler(args) {
+    for (var i = 0; i < events.length; i++) {
+      var event = events[i];
+      if (event) event(args);
+    }
+  };
+
+  eventHandler.typeName = 'eventHandler';
+
+  eventHandler.events = events;
+
+  eventHandler.on = function (evn, owner) {
+    evn.owner = owner;
+
+    var any = false;
+    for (var i = 0; i < events.length; i++) {
+      var event = events[i];
+      if (event.owner === owner) {
+        any = true;
+        events[i] = evn;
+      }
+    }
+
+    if (!any) {
+      events.push(evn);
+    }
+  };
+
+  eventHandler.remove = function (owner) {
+    for (var i = events.length - 1; i >= 0; i--) {
+      var event = events[i];
+      if (event.owner === owner) {
+        events.splice(i, 1);
+      }
+    }
+  };
+
+  return eventHandler;
+}
+
+function eventAdd(evn, event, owner) {
+  if (!evn) evn = eventEmitter();
+  if (evn && evn.typeName !== 'eventHandler') {
+    var emitter = eventEmitter();
+    emitter.on(evn, 'none');
+    evn = emitter;
+  }
+
+  evn.on(event, owner);
+  return evn;
+}
+
+function eventRemove(evn, owner) {
+  if (!evn) return;
+  if (evn && evn.typeName !== 'eventHandler') return;
+
+  evn.remove(owner);
+  if (evn.events.length <= 0) return null;
+
+  return evn;
+}
+
+function isnull(value, defaultValue) {
+  if (value === 0 || value === false || value === '') return value;
+
+  return value || defaultValue;
+}
+
+function exists(value) {
+  return value === 0 || value === false || value === '' || value;
+}
 // EXTERNAL MODULE: ./node_modules/moment/moment.js
 var moment = __webpack_require__("PJh5");
 var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
@@ -5552,7 +5406,7 @@ function concat(seporate, items) {
 }
 
 function to00(number) {
-  number = parseInt(number);
+  number = parseInt(number, 10);
   if (number <= 9) return '0' + number;
 
   if (number === 0) return '0' + number;
@@ -5591,10 +5445,10 @@ function maxValue(value, max, maxLength) {
   if (value !== 0 && !value) return '';
   if (value.length > maxLength) {
     var vl = value.substring(0, maxLength);
-    if (parseInt(vl) > max) return max;else return vl;
+    if (parseInt(vl, 10) > max) return max;else return vl;
   }
 
-  var v = parseInt(value);
+  var v = parseInt(value, 10);
   if (v > max) return max;
 
   return value;
@@ -5662,7 +5516,7 @@ function datetimeToObject(value) {
 
   if (value.split('-').length <= 1 && value.split(' ').length <= 1) {
     return {
-      year: parseInt(value),
+      year: parseInt(value, 10),
       month: undefined,
       day: undefined,
       time: {
@@ -5784,8 +5638,8 @@ function timeToObject(value) {
   var valueArray = value.split(':');
   if (valueArray.length !== 2) return;
 
-  var hours = parseInt(valueArray[0]);
-  var minutes = parseInt(valueArray[1]);
+  var hours = parseInt(valueArray[0], 10);
+  var minutes = parseInt(valueArray[1], 10);
 
   return { hours: hours, minutes: minutes };
 }
@@ -5897,7 +5751,7 @@ function getDecade(year) {
   var stringYear = year.toString();
 
   var startDecade = 0;
-  if (stringYear.length >= 2) startDecade = parseInt(stringYear.substring(0, stringYear.length - 1) + '0');
+  if (stringYear.length >= 2) startDecade = parseInt(stringYear.substring(0, stringYear.length - 1) + '0', 10);
 
   return startDecade;
 }
@@ -5979,11 +5833,11 @@ function datetimeObjectFromText(value) {
     }
   }
 
-  if (year) year = parseInt(year);
-  if (month) month = parseInt(month);
-  if (day) day = parseInt(day);
-  if (hours) hours = parseInt(hours);
-  if (minutes) minutes = parseInt(minutes);
+  if (year) year = parseInt(year, 10);
+  if (month) month = parseInt(month, 10);
+  if (day) day = parseInt(day, 10);
+  if (hours) hours = parseInt(hours, 10);
+  if (minutes) minutes = parseInt(minutes, 10);
 
   return { year: year, month: month, day: day, time: { hours: hours, minutes: minutes } };
 }
@@ -6109,117 +5963,193 @@ function timeMask(value) {
     return hours + minutes;
   }
 }
-// CONCATENATED MODULE: ./src/common/Months.jsx
+// EXTERNAL MODULE: ./src/components/common/NextBack.module.sass
+var NextBack_module = __webpack_require__("oWKB");
+var NextBack_module_default = /*#__PURE__*/__webpack_require__.n(NextBack_module);
+
+// EXTERNAL MODULE: ./src/components/icons/Icon.module.sass
+var Icon_module = __webpack_require__("ju6e");
+var Icon_module_default = /*#__PURE__*/__webpack_require__.n(Icon_module);
+
+// CONCATENATED MODULE: ./src/components/icons/Icon.jsx
 
 
-function Months__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function Months__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function Months__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 
 
 
 
 
-var Months_Months = function (_React$Component) {
-  Months__inherits(Months, _React$Component);
+var Icon_Icon = function (_Component) {
+  _inherits(Icon, _Component);
 
-  function Months() {
-    var _temp, _this, _ret;
+  function Icon() {
+    _classCallCheck(this, Icon);
 
-    Months__classCallCheck(this, Months);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = Months__possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.state = {
-      year: -1
-    }, _temp), Months__possibleConstructorReturn(_this, _ret);
+    return _possibleConstructorReturn(this, _Component.apply(this, arguments));
   }
 
-  Months.prototype.render = function render() {
-    var _this2 = this;
-
+  Icon.prototype.render = function render() {
     var _props = this.props,
-        months = _props.months,
-        month = _props.month,
-        onChange = _props.onChange,
+        children = _props.children,
         cnBox = _props.className,
-        prpYear = _props.year,
-        onClickYear = _props.onClickYear;
-    var year = this.state.year;
-
-    if (year === -1) year = prpYear;
-
-    var renderingMonths = months.map(function (a, i) {
-      var _cx;
-
-      return Object(preact_min["h"])(
-        'div',
-        {
-          key: a,
-          className: classnames_default()('monthsCell', 'teamCalendarItem', (_cx = {}, _cx['monthSelected'] = prpYear === year && month === i + 1, _cx)),
-          onClick: function onClick() {
-            return onChange && onChange(year, i + 1);
-          }
-        },
-        a
-      );
-    });
-
-    var renderRow = function renderRow(items, key) {
-      return Object(preact_min["h"])(
-        'div',
-        { key: 'months-row-' + key, className: classnames_default()('monthsRow') },
-        items
-      );
-    };
+        icon = _props.icon,
+        onClick = _props.onClick;
 
     return Object(preact_min["h"])(
       'div',
-      { className: classnames_default()('monthsBox', cnBox) },
-      Object(preact_min["h"])(
-        common_NextBack,
-        { onNext: function onNext() {
-            return _this2.setState({ year: year + 1 });
-          }, onBack: function onBack() {
-            return _this2.setState({ year: year - 1 });
-          } },
-        Object(preact_min["h"])(
-          'div',
-          { onClick: onClickYear },
-          year
-        )
-      ),
-      Object(preact_min["h"])(
-        'div',
-        { className: 'monthsTable' },
-        renderRow([renderingMonths[0], renderingMonths[1], renderingMonths[2]], 0),
-        renderRow([renderingMonths[3], renderingMonths[4], renderingMonths[5]], 1),
-        renderRow([renderingMonths[6], renderingMonths[7], renderingMonths[8]], 2),
-        renderRow([renderingMonths[9], renderingMonths[10], renderingMonths[11]], 3)
-      )
+      {
+        className: classnames_default()(Icon_module_default.a.icon, cnBox),
+        style: { backgroundImage: 'url(' + icon + ')' },
+        onClick: onClick
+      },
+      children
     );
   };
 
-  return Months;
-}(preact_compat_es["default"].Component);
+  return Icon;
+}(Component$1);
 
-Months_Months.defaultProps = {
-  lg: constants.lg.ru
-};
+/* harmony default export */ var icons_Icon = (Icon_Icon);
+// EXTERNAL MODULE: ./src/img/left.svg
+var img_left = __webpack_require__("He2Z");
+var left_default = /*#__PURE__*/__webpack_require__.n(img_left);
 
-/* harmony default export */ var src_common_Months = (Months_Months);
-// EXTERNAL MODULE: ./src/common/Years.sass
-var common_Years = __webpack_require__("HdW0");
-var Years_default = /*#__PURE__*/__webpack_require__.n(common_Years);
+// CONCATENATED MODULE: ./src/components/icons/LeftIcon.jsx
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-// CONCATENATED MODULE: ./src/common/Years.jsx
+
+
+function LeftIcon__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function LeftIcon__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function LeftIcon__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+
+var LeftIcon_LeftIcon = function (_Component) {
+  LeftIcon__inherits(LeftIcon, _Component);
+
+  function LeftIcon() {
+    LeftIcon__classCallCheck(this, LeftIcon);
+
+    return LeftIcon__possibleConstructorReturn(this, _Component.apply(this, arguments));
+  }
+
+  LeftIcon.prototype.render = function render() {
+    var p = _extends({}, this.props, { className: classnames_default()(Icon_module_default.a.px14, this.props.className) });
+    return Object(preact_min["h"])(
+      'div',
+      { className: classnames_default()(Icon_module_default.a.px24, Icon_module_default.a.center, Icon_module_default.a.left5px) },
+      Object(preact_min["h"])(icons_Icon, _extends({ icon: left_default.a }, p))
+    );
+  };
+
+  return LeftIcon;
+}(Component$1);
+
+/* harmony default export */ var icons_LeftIcon = (LeftIcon_LeftIcon);
+// EXTERNAL MODULE: ./src/img/right.svg
+var right = __webpack_require__("Tl1n");
+var right_default = /*#__PURE__*/__webpack_require__.n(right);
+
+// CONCATENATED MODULE: ./src/components/icons/RightIcon.jsx
+var RightIcon__extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+
+
+function RightIcon__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function RightIcon__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function RightIcon__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+
+var RightIcon_RightIcon = function (_Component) {
+  RightIcon__inherits(RightIcon, _Component);
+
+  function RightIcon() {
+    RightIcon__classCallCheck(this, RightIcon);
+
+    return RightIcon__possibleConstructorReturn(this, _Component.apply(this, arguments));
+  }
+
+  RightIcon.prototype.render = function render() {
+    var p = RightIcon__extends({}, this.props, { className: classnames_default()(Icon_module_default.a.px14, this.props.className) });
+    return Object(preact_min["h"])(
+      'div',
+      { className: classnames_default()(Icon_module_default.a.px24, Icon_module_default.a.right, Icon_module_default.a.right5px) },
+      Object(preact_min["h"])(icons_Icon, RightIcon__extends({ icon: right_default.a }, p))
+    );
+  };
+
+  return RightIcon;
+}(Component$1);
+
+/* harmony default export */ var icons_RightIcon = (RightIcon_RightIcon);
+// EXTERNAL MODULE: ./src/components/styles/Team.module.sass
+var Team_module = __webpack_require__("XsJY");
+var Team_module_default = /*#__PURE__*/__webpack_require__.n(Team_module);
+
+// CONCATENATED MODULE: ./src/components/common/NextBack.jsx
+
+
+
+
+
+
+
+
+function NextBack(props) {
+  var children = props.children,
+      onNext = props.onNext,
+      onBack = props.onBack,
+      cnBox = props.className;
+
+  return Object(preact_min["h"])(
+    'div',
+    { className: classnames_default()(NextBack_module_default.a.nextbackBox, NextBack_module_default.a.nextbackHeaderStyle, cnBox, NextBack_module_default.a.teamCalendarTitle) },
+    Object(preact_min["h"])(
+      'div',
+      { onClick: onBack },
+      Object(preact_min["h"])(icons_LeftIcon, { className: NextBack_module_default.a.nextbackGoLeftRightIcon })
+    ),
+    Object(preact_min["h"])(
+      'div',
+      null,
+      Object(preact_min["h"])(
+        'div',
+        { className: classnames_default()(NextBack_module_default.a.nextbackHeader, Team_module_default.a.teamCalendarTitleLocation) },
+        children
+      )
+    ),
+    Object(preact_min["h"])(icons_RightIcon, { onClick: onNext, className: NextBack_module_default.a.nextbackGoLeftRightIcon })
+  );
+}
+
+/* harmony default export */ var common_NextBack = (NextBack);
+// EXTERNAL MODULE: ./src/components/common/Years.module.sass
+var Years_module = __webpack_require__("LN+u");
+var Years_module_default = /*#__PURE__*/__webpack_require__.n(Years_module);
+
+// CONCATENATED MODULE: ./src/components/common/Years.jsx
 
 
 function Years__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -6235,8 +6165,9 @@ function Years__inherits(subClass, superClass) { if (typeof superClass !== "func
 
 
 
-var Years_Years = function (_React$Component) {
-  Years__inherits(Years, _React$Component);
+
+var Years_Years = function (_Component) {
+  Years__inherits(Years, _Component);
 
   function Years() {
     var _temp, _this, _ret;
@@ -6247,7 +6178,7 @@ var Years_Years = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = Years__possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.state = {
+    return _ret = (_temp = (_this = Years__possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {
       year: -1
     }, _temp), Years__possibleConstructorReturn(_this, _ret);
   }
@@ -6271,7 +6202,7 @@ var Years_Years = function (_React$Component) {
       return Object(preact_min["h"])(
         'div',
         {
-          className: classnames_default()('yearsCell', (_cx = {}, _cx['selectedYear'] = selectedYear === y, _cx), 'teamCalendarItem'),
+          className: classnames_default()(Years_module_default.a.yearsCell, (_cx = {}, _cx[Years_module_default.a.selectedYear] = selectedYear === y, _cx), Team_module_default.a.teamCalendarItem),
           onClick: function onClick() {
             return onChange && onChange(y);
           }
@@ -6283,7 +6214,7 @@ var Years_Years = function (_React$Component) {
     var renderRow = function renderRow(y0, y1, y2, y3) {
       return Object(preact_min["h"])(
         'div',
-        { className: 'yearsRow' },
+        { className: Years_module_default.a.yearsRow },
         y0 && renderingYear(y0),
         y1 && renderingYear(y1),
         y2 && renderingYear(y2),
@@ -6295,7 +6226,7 @@ var Years_Years = function (_React$Component) {
 
     return Object(preact_min["h"])(
       'div',
-      { className: classnames_default()('yearsBox', cnBox) },
+      { className: classnames_default()(Years_module_default.a.yearsBox, cnBox) },
       Object(preact_min["h"])(
         common_NextBack,
         {
@@ -6314,7 +6245,7 @@ var Years_Years = function (_React$Component) {
       ),
       Object(preact_min["h"])(
         'div',
-        { className: 'yearsTable' },
+        { className: Years_module_default.a.yearsTable },
         renderRow(decade, decade + 1, decade + 2, decade + 3),
         renderRow(decade + 4, decade + 5, decade + 6, decade + 7),
         renderRow(decade + 8, decade + 9, decade + 10)
@@ -6323,14 +6254,151 @@ var Years_Years = function (_React$Component) {
   };
 
   return Years;
-}(preact_compat_es["default"].Component);
+}(Component$1);
 
-/* harmony default export */ var src_common_Years = (Years_Years);
-// EXTERNAL MODULE: ./src/common/Calendar.sass
-var common_Calendar = __webpack_require__("USf2");
-var Calendar_default = /*#__PURE__*/__webpack_require__.n(common_Calendar);
+/* harmony default export */ var common_Years = (Years_Years);
+// EXTERNAL MODULE: ./src/components/common/Months.module.sass
+var Months_module = __webpack_require__("rMhh");
+var Months_module_default = /*#__PURE__*/__webpack_require__.n(Months_module);
 
-// CONCATENATED MODULE: ./src/common/CalendarNextBack.jsx
+// CONCATENATED MODULE: ./src/components/common/Months.jsx
+var _class, _temp2;
+
+
+
+function Months__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function Months__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function Months__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+
+
+
+var Months_Months = (_temp2 = _class = function (_Component) {
+  Months__inherits(Months, _Component);
+
+  function Months() {
+    var _temp, _this, _ret;
+
+    Months__classCallCheck(this, Months);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = Months__possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {
+      year: -1,
+      showType: Months.showType.months
+    }, _this.handlerOnClickYear = function () {
+      var onClickYear = _this.props.onClickYear;
+
+      if (onClickYear) onClickYear();else _this.setState({ showType: Months.showType.years });
+    }, _temp), Months__possibleConstructorReturn(_this, _ret);
+  }
+
+  Months.prototype.render = function render() {
+    var _this2 = this;
+
+    var _props = this.props,
+        months = _props.months,
+        month = _props.month,
+        onChange = _props.onChange,
+        cnBox = _props.className,
+        prpYear = _props.year;
+    var _state = this.state,
+        year = _state.year,
+        showType = _state.showType;
+
+    if (year === -1) year = prpYear;
+
+    var renderingMonths = months.map(function (a, i) {
+      var _cx;
+
+      return Object(preact_min["h"])(
+        'div',
+        {
+          key: a,
+          className: classnames_default()(Months_module_default.a.monthsCell, Team_module_default.a.teamCalendarItem, (_cx = {}, _cx[Months_module_default.a.monthSelected] = prpYear === year && month === i + 1, _cx)),
+          onClick: function onClick() {
+            return onChange && onChange(year, i + 1);
+          }
+        },
+        a
+      );
+    });
+
+    var renderRow = function renderRow(items, key) {
+      return Object(preact_min["h"])(
+        'div',
+        { key: 'months-row-' + key, className: classnames_default()(Months_module_default.a.monthsRow) },
+        items
+      );
+    };
+
+    if (showType === Months.showType.years) {
+      return Object(preact_min["h"])(common_Years, {
+        className: classnames_default()(Months_module_default.a.monthsBox, cnBox),
+        year: year,
+        onChange: function onChange(y) {
+          return _this2.setState({ year: y, showType: Months.showType.months });
+        }
+      });
+    }
+
+    return Object(preact_min["h"])(
+      'div',
+      { className: classnames_default()(Months_module_default.a.monthsBox, cnBox) },
+      Object(preact_min["h"])(
+        common_NextBack,
+        {
+          onNext: function onNext() {
+            return _this2.setState({ year: year + 1 });
+          },
+          onBack: function onBack() {
+            return _this2.setState({ year: year - 1 });
+          }
+        },
+        Object(preact_min["h"])(
+          'div',
+          { className: Months_module_default.a.yearBox, onClick: this.handlerOnClickYear },
+          year
+        )
+      ),
+      Object(preact_min["h"])(
+        'div',
+        { className: Months_module_default.a.monthsTable },
+        renderRow([renderingMonths[0], renderingMonths[1], renderingMonths[2]], 0),
+        renderRow([renderingMonths[3], renderingMonths[4], renderingMonths[5]], 1),
+        renderRow([renderingMonths[6], renderingMonths[7], renderingMonths[8]], 2),
+        renderRow([renderingMonths[9], renderingMonths[10], renderingMonths[11]], 3)
+      )
+    );
+  };
+
+  return Months;
+}(Component$1), _class.showType = {
+  months: 'MONTHS',
+  years: 'YEARS'
+}, _temp2);
+
+
+Months_Months.defaultProps = {
+  lg: constants.lg.ru
+};
+
+/* harmony default export */ var common_Months = (Months_Months);
+// EXTERNAL MODULE: ./src/components/common/Calendar.module.sass
+var Calendar_module = __webpack_require__("voiF");
+var Calendar_module_default = /*#__PURE__*/__webpack_require__.n(Calendar_module);
+
+// CONCATENATED MODULE: ./src/components/common/CalendarNextBack.jsx
 
 
 function CalendarNextBack__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -6346,13 +6414,13 @@ function CalendarNextBack__inherits(subClass, superClass) { if (typeof superClas
 
 
 
-var CalendarNextBack_CalendarNextBack = function (_React$Component) {
-  CalendarNextBack__inherits(CalendarNextBack, _React$Component);
+var CalendarNextBack_CalendarNextBack = function (_Component) {
+  CalendarNextBack__inherits(CalendarNextBack, _Component);
 
   function CalendarNextBack() {
     CalendarNextBack__classCallCheck(this, CalendarNextBack);
 
-    return CalendarNextBack__possibleConstructorReturn(this, _React$Component.apply(this, arguments));
+    return CalendarNextBack__possibleConstructorReturn(this, _Component.apply(this, arguments));
   }
 
   CalendarNextBack.prototype.render = function render() {
@@ -6373,30 +6441,26 @@ var CalendarNextBack_CalendarNextBack = function (_React$Component) {
         } },
       Object(preact_min["h"])(
         'div',
-        { className: classnames_default()('calendarLink'), onClick: onClickMonth },
+        { className: classnames_default()(Calendar_module_default.a.calendarLink), onClick: onClickMonth },
         getMonthName(month)
       ),
       Object(preact_min["h"])(
         'div',
-        { className: classnames_default()('calendarLink'), onClick: onClickYear },
+        { className: classnames_default()(Calendar_module_default.a.calendarLink), onClick: onClickYear },
         year
       )
     );
   };
 
   return CalendarNextBack;
-}(preact_compat_es["default"].Component);
+}(Component$1);
 
 /* harmony default export */ var common_CalendarNextBack = (CalendarNextBack_CalendarNextBack);
-// EXTERNAL MODULE: ./src/common/TimeMouseClick.sass
-var common_TimeMouseClick = __webpack_require__("g81F");
-var TimeMouseClick_default = /*#__PURE__*/__webpack_require__.n(common_TimeMouseClick);
+// EXTERNAL MODULE: ./src/img/back-24px.svg
+var back_24px = __webpack_require__("bLS2");
+var back_24px_default = /*#__PURE__*/__webpack_require__.n(back_24px);
 
-// EXTERNAL MODULE: ./src/common/img/svg/baseline-arrow_back-24px.svg
-var baseline_arrow_back_24px = __webpack_require__("r9V9");
-var baseline_arrow_back_24px_default = /*#__PURE__*/__webpack_require__.n(baseline_arrow_back_24px);
-
-// CONCATENATED MODULE: ./src/common/img/BackIcon.jsx
+// CONCATENATED MODULE: ./src/components/icons/BackIcon.jsx
 var BackIcon__extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -6412,8 +6476,8 @@ function BackIcon__inherits(subClass, superClass) { if (typeof superClass !== "f
 
 
 
-var BackIcon_BackIcon = function (_React$Component) {
-  BackIcon__inherits(BackIcon, _React$Component);
+var BackIcon_BackIcon = function (_Component) {
+  BackIcon__inherits(BackIcon, _Component);
 
   function BackIcon() {
     var _temp, _this, _ret;
@@ -6424,22 +6488,21 @@ var BackIcon_BackIcon = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = BackIcon__possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.render = function () {
-      return Object(preact_min["h"])(common_img_Icon, BackIcon__extends({ icon: baseline_arrow_back_24px_default.a }, _this.props));
+    return _ret = (_temp = (_this = BackIcon__possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.render = function () {
+      return Object(preact_min["h"])(icons_Icon, BackIcon__extends({ icon: back_24px_default.a }, _this.props));
     }, _temp), BackIcon__possibleConstructorReturn(_this, _ret);
   }
 
   return BackIcon;
-}(preact_compat_es["default"].Component);
+}(Component$1);
 
-BackIcon_BackIcon.porpTypes = {
-  children: prop_types_default.a.any,
-  className: prop_types_default.a.string
-};
+/* harmony default export */ var icons_BackIcon = (BackIcon_BackIcon);
+// EXTERNAL MODULE: ./src/components/common/TimeMouseClick.module.sass
+var TimeMouseClick_module = __webpack_require__("22ra");
+var TimeMouseClick_module_default = /*#__PURE__*/__webpack_require__.n(TimeMouseClick_module);
 
-/* harmony default export */ var img_BackIcon = (BackIcon_BackIcon);
-// CONCATENATED MODULE: ./src/common/TimeMouseClick.jsx
-var _class, _temp2;
+// CONCATENATED MODULE: ./src/components/common/TimeMouseClick.jsx
+var TimeMouseClick__class, TimeMouseClick__temp2;
 
 
 
@@ -6456,14 +6519,10 @@ function TimeMouseClick__inherits(subClass, superClass) { if (typeof superClass 
 
 
 
-var TimeMouseClick__ref = Object(preact_min["h"])(
-  'div',
-  { className: 'label400' },
-  ':00'
-);
 
-var TimeMouseClick_TimeMouseClick = (_temp2 = _class = function (_React$Component) {
-  TimeMouseClick__inherits(TimeMouseClick, _React$Component);
+
+var TimeMouseClick_TimeMouseClick = (TimeMouseClick__temp2 = TimeMouseClick__class = function (_Component) {
+  TimeMouseClick__inherits(TimeMouseClick, _Component);
 
   function TimeMouseClick() {
     var _temp, _this, _ret;
@@ -6474,7 +6533,7 @@ var TimeMouseClick_TimeMouseClick = (_temp2 = _class = function (_React$Componen
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = TimeMouseClick__possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.state = {
+    return _ret = (_temp = (_this = TimeMouseClick__possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {
       showType: TimeMouseClick.showType.hh,
       hours: undefined,
       minutes: undefined
@@ -6511,7 +6570,7 @@ var TimeMouseClick_TimeMouseClick = (_temp2 = _class = function (_React$Componen
         rowHH.push(Object(preact_min["h"])(
           'div',
           {
-            className: classnames_default()('cell', (_cx = {}, _cx['cellSelected'] = i === hours, _cx)),
+            className: classnames_default()(TimeMouseClick_module_default.a.cell, (_cx = {}, _cx[TimeMouseClick_module_default.a.cellSelected] = i === hours, _cx)),
             onClick: function onClick() {
               _this2.setState({ showType: TimeMouseClick.showType.mm, hours: i });
             }
@@ -6521,13 +6580,17 @@ var TimeMouseClick_TimeMouseClick = (_temp2 = _class = function (_React$Componen
             null,
             to00(i)
           ),
-          TimeMouseClick__ref
+          Object(preact_min["h"])(
+            'div',
+            { className: TimeMouseClick_module_default.a.label400 },
+            ':00'
+          )
         ));
         if (rowHH.length >= 4) {
           var rw = rowHH;
           rowsHH.push(Object(preact_min["h"])(
             'div',
-            { className: 'row' },
+            { className: TimeMouseClick_module_default.a.row },
             rw
           ));
           rowHH = [];
@@ -6540,7 +6603,7 @@ var TimeMouseClick_TimeMouseClick = (_temp2 = _class = function (_React$Componen
 
       return Object(preact_min["h"])(
         'div',
-        { className: 'table' },
+        { className: TimeMouseClick_module_default.a.table },
         rowsHH
       );
     };
@@ -6556,7 +6619,7 @@ var TimeMouseClick_TimeMouseClick = (_temp2 = _class = function (_React$Componen
         rowMM.push(Object(preact_min["h"])(
           'div',
           {
-            className: classnames_default()('cell', (_cx2 = {}, _cx2['cellSelected'] = i === minutes, _cx2)),
+            className: classnames_default()(TimeMouseClick_module_default.a.cell, (_cx2 = {}, _cx2[TimeMouseClick_module_default.a.cellSelected] = i === minutes, _cx2)),
             onClick: function onClick() {
               _this2.setState({ minutes: i });
               if (onChange) onChange({ hours: hours, minutes: i });
@@ -6564,7 +6627,7 @@ var TimeMouseClick_TimeMouseClick = (_temp2 = _class = function (_React$Componen
           },
           Object(preact_min["h"])(
             'div',
-            { className: 'label400' },
+            { className: TimeMouseClick_module_default.a.label400 },
             hh + ':'
           ),
           Object(preact_min["h"])(
@@ -6578,7 +6641,7 @@ var TimeMouseClick_TimeMouseClick = (_temp2 = _class = function (_React$Componen
           var rw = rowMM;
           rowsMM.push(Object(preact_min["h"])(
             'div',
-            { className: 'row' },
+            { className: TimeMouseClick_module_default.a.row },
             rw
           ));
           rowMM = [];
@@ -6591,7 +6654,7 @@ var TimeMouseClick_TimeMouseClick = (_temp2 = _class = function (_React$Componen
 
       return Object(preact_min["h"])(
         'div',
-        { className: 'table' },
+        { className: TimeMouseClick_module_default.a.table },
         rowsMM
       );
     };
@@ -6602,17 +6665,19 @@ var TimeMouseClick_TimeMouseClick = (_temp2 = _class = function (_React$Componen
           return renderHH();
         case TimeMouseClick.showType.mm:
           return renderMM();
+        default:
+          return null;
       }
     };
 
     return Object(preact_min["h"])(
       'div',
-      { className: classnames_default()('rootCalendar', 'tmcBox', cnBox) },
+      { className: classnames_default()(Team_module_default.a.rootCalendar, TimeMouseClick_module_default.a.tmcBox, cnBox) },
       Object(preact_min["h"])(
         'div',
-        { className: classnames_default()('tmcTitle', 'nextbackHeaderStyle') },
-        Object(preact_min["h"])(img_BackIcon, {
-          className: 'tmcTitleBack',
+        { className: classnames_default()(TimeMouseClick_module_default.a.tmcTitle, NextBack_module_default.a.nextbackHeaderStyle) },
+        Object(preact_min["h"])(icons_BackIcon, {
+          className: TimeMouseClick_module_default.a.tmcTitleBack,
           onClick: function onClick() {
             if (showType === TimeMouseClick.showType.mm) _this2.setState({ showType: TimeMouseClick.showType.hh });else if (onChange) onChange();
           }
@@ -6620,21 +6685,21 @@ var TimeMouseClick_TimeMouseClick = (_temp2 = _class = function (_React$Componen
       ),
       Object(preact_min["h"])(
         'div',
-        { className: 'tableBox' },
+        { className: TimeMouseClick_module_default.a.tableBox },
         renderContent()
       )
     );
   };
 
   return TimeMouseClick;
-}(preact_compat_es["default"].Component), _class.showType = {
+}(Component$1), TimeMouseClick__class.showType = {
   hh: 'HH',
   mm: 'MM'
-}, _temp2);
+}, TimeMouseClick__temp2);
 
 
-/* harmony default export */ var src_common_TimeMouseClick = (TimeMouseClick_TimeMouseClick);
-// CONCATENATED MODULE: ./src/common/CalendarTemplate.jsx
+/* harmony default export */ var common_TimeMouseClick = (TimeMouseClick_TimeMouseClick);
+// CONCATENATED MODULE: ./src/components/common/CalendarTemplate.jsx
 var CalendarTemplate__class, CalendarTemplate__temp;
 
 
@@ -6655,13 +6720,14 @@ function CalendarTemplate__inherits(subClass, superClass) { if (typeof superClas
 
 
 
-var CalendarTemplate_CalendarTemplate = (CalendarTemplate__temp = CalendarTemplate__class = function (_React$Component) {
-  CalendarTemplate__inherits(CalendarTemplate, _React$Component);
+
+var CalendarTemplate_CalendarTemplate = (CalendarTemplate__temp = CalendarTemplate__class = function (_Component) {
+  CalendarTemplate__inherits(CalendarTemplate, _Component);
 
   function CalendarTemplate() {
     CalendarTemplate__classCallCheck(this, CalendarTemplate);
 
-    return CalendarTemplate__possibleConstructorReturn(this, _React$Component.apply(this, arguments));
+    return CalendarTemplate__possibleConstructorReturn(this, _Component.apply(this, arguments));
   }
 
   CalendarTemplate.prototype.render = function render() {
@@ -6680,18 +6746,18 @@ var CalendarTemplate_CalendarTemplate = (CalendarTemplate__temp = CalendarTempla
 
     switch (showType) {
       case CalendarTemplate.showType.months:
-        return Object(preact_min["h"])(src_common_Months, {
+        return Object(preact_min["h"])(common_Months, {
           year: year,
-          className: classnames_default()('rootCalendar', classBox),
+          className: classnames_default()(Team_module_default.a.rootCalendar, classBox),
           onChange: function onChange(y, m) {
             return _onChange({ showType: CalendarTemplate.showType.calendar, year: y, month: m });
           },
           months: constants[lg].months
         });
       case CalendarTemplate.showType.years:
-        return Object(preact_min["h"])(src_common_Years, {
+        return Object(preact_min["h"])(common_Years, {
           year: year,
-          className: classnames_default()('rootCalendar', classBox),
+          className: classnames_default()(Team_module_default.a.rootCalendar, classBox),
           onChange: function onChange(y) {
             return _onChange({ showType: CalendarTemplate.showType.calendar, year: y });
           }
@@ -6699,7 +6765,7 @@ var CalendarTemplate_CalendarTemplate = (CalendarTemplate__temp = CalendarTempla
       case CalendarTemplate.showType.calendar:
         return Object(preact_min["h"])(
           'div',
-          { className: classnames_default()('calendarBox', cnBox, 'teamCalendarBox') },
+          { className: classnames_default()(Calendar_module_default.a.calendarBox, cnBox, Team_module_default.a.teamCalendarBox, Team_module_default.a.rootCalendar) },
           Object(preact_min["h"])(common_CalendarNextBack, {
             lg: lg,
             year: year,
@@ -6720,7 +6786,7 @@ var CalendarTemplate_CalendarTemplate = (CalendarTemplate__temp = CalendarTempla
         var hours = time.hours,
             minutes = time.minutes;
 
-        return Object(preact_min["h"])(src_common_TimeMouseClick, {
+        return Object(preact_min["h"])(common_TimeMouseClick, {
           className: classBox,
           hours: hours,
           minutes: minutes,
@@ -6734,7 +6800,7 @@ var CalendarTemplate_CalendarTemplate = (CalendarTemplate__temp = CalendarTempla
   };
 
   return CalendarTemplate;
-}(preact_compat_es["default"].Component), CalendarTemplate__class.showType = {
+}(Component$1), CalendarTemplate__class.showType = {
   calendar: 'CALENDAR',
   months: 'MONTHS',
   years: 'YEARS',
@@ -6748,11 +6814,11 @@ CalendarTemplate_CalendarTemplate.defaultProps = {
 };
 
 /* harmony default export */ var common_CalendarTemplate = (CalendarTemplate_CalendarTemplate);
-// EXTERNAL MODULE: ./src/common/Days.sass
-var common_Days = __webpack_require__("/b59");
-var Days_default = /*#__PURE__*/__webpack_require__.n(common_Days);
+// EXTERNAL MODULE: ./src/components/common/Days.module.sass
+var Days_module = __webpack_require__("Y05x");
+var Days_module_default = /*#__PURE__*/__webpack_require__.n(Days_module);
 
-// CONCATENATED MODULE: ./src/common/Days.jsx
+// CONCATENATED MODULE: ./src/components/common/Days.jsx
 var Days__extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var Days__class, Days__temp2;
@@ -6771,8 +6837,9 @@ function Days__inherits(subClass, superClass) { if (typeof superClass !== "funct
 
 
 
-var Days_Days = (Days__temp2 = Days__class = function (_React$Component) {
-  Days__inherits(Days, _React$Component);
+
+var Days_Days = (Days__temp2 = Days__class = function (_Component) {
+  Days__inherits(Days, _Component);
 
   function Days() {
     var _temp, _this, _ret;
@@ -6783,7 +6850,7 @@ var Days_Days = (Days__temp2 = Days__class = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = Days__possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.state = {
+    return _ret = (_temp = (_this = Days__possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {
       from: {},
       to: {},
       lastChange: ''
@@ -6855,11 +6922,7 @@ var Days_Days = (Days__temp2 = Days__class = function (_React$Component) {
         disable = lteCurrentDate && compareDateObjects(now, { year: y, month: m, day: d }) > 0 || gteCurrentDate && compareDateObjects(now, { year: y, month: m, day: d }) < 0;
       } else {
         if (lastChange === constants.rangeValueType.from) {
-          disable = lteCurrentDateFrom && compareDateObjects(now, { year: y, month: m, day: d }) > 0 || gteCurrentDateFrom && compareDateObjects(now, {
-            year: y,
-            month: m,
-            day: d
-          }) < 0;
+          disable = lteCurrentDateFrom && compareDateObjects(now, { year: y, month: m, day: d }) > 0 || gteCurrentDateFrom && compareDateObjects(now, { year: y, month: m, day: d }) < 0;
         } else if (lastChange === constants.rangeValueType.to) {
           disable = lteCurrentDateTo && compareDateObjects(now, { year: y, month: m, day: d }) > 0 || gteCurrentDateTo && compareDateObjects(now, { year: y, month: m, day: d }) < 0;
         }
@@ -6911,7 +6974,7 @@ var Days_Days = (Days__temp2 = Days__class = function (_React$Component) {
         countDayInMonth = _datetimeToObject.countDayInMonth;
 
     var renderDay = function renderDay(d, m, y, position) {
-      var _cx, _cx2, _cx3, _cx4, _cx5, _cx6, _cx7, _cx8, _cx9;
+      var _cx, _cx2, _cx3, _cx4, _cx5, _cx6, _cx7, _cx8, _cx9, _cx10;
 
       var renderCurrentMonth = y === year && m === month;
 
@@ -6921,7 +6984,8 @@ var Days_Days = (Days__temp2 = Days__class = function (_React$Component) {
       return Object(preact_min["h"])(
         'div',
         {
-          className: classnames_default()((_cx = {}, _cx['daysLeft'] = position === 'left', _cx), (_cx2 = {}, _cx2['daysRight'] = position === 'right', _cx2), 'daysContentItem', (_cx3 = {}, _cx3['teamCalendarItemBetween'] = compareDateObjects({ year: yearFrom, month: monthFrom, day: dayFrom }, { year: y, month: m, day: d }) < 0 && compareDateObjects({ year: yearTo, month: monthTo, day: dayTo }, { year: y, month: m, day: d }) > 0, _cx3), (_cx4 = {}, _cx4['daysDayRangeOnDay'] = compareDateObjects({ year: yearFrom, month: monthFrom, day: dayFrom }, { year: yearTo, month: monthTo, day: dayTo }) === 0 && compareDateObjects({ year: yearTo, month: monthTo, day: dayTo }, { year: y, month: m, day: d }) === 0, _cx4), { 'daysContentItemNotCurrentMount': !renderCurrentMonth }),
+          key: 'day-' + y + '-' + m + '-' + d,
+          className: classnames_default()((_cx = {}, _cx[Days_module_default.a.daysLeft] = position === 'left', _cx), (_cx2 = {}, _cx2[Days_module_default.a.daysRight] = position === 'right', _cx2), Days_module_default.a.daysContentItem, (_cx3 = {}, _cx3[Team_module_default.a.teamCalendarItemBetween] = compareDateObjects({ year: yearFrom, month: monthFrom, day: dayFrom }, { year: y, month: m, day: d }) < 0 && compareDateObjects({ year: yearTo, month: monthTo, day: dayTo }, { year: y, month: m, day: d }) > 0, _cx3), (_cx4 = {}, _cx4[Days_module_default.a.daysDayRangeOnDay] = compareDateObjects({ year: yearFrom, month: monthFrom, day: dayFrom }, { year: yearTo, month: monthTo, day: dayTo }) === 0 && compareDateObjects({ year: yearTo, month: monthTo, day: dayTo }, { year: y, month: m, day: d }) === 0, _cx4), (_cx5 = {}, _cx5[Days_module_default.a.daysContentItemNotCurrentMount] = !renderCurrentMonth, _cx5)),
           onMouseDown: function onMouseDown() {
             return !!d && _this2.handlerOnChange(d, m, y, true);
           },
@@ -6932,11 +6996,11 @@ var Days_Days = (Days__temp2 = Days__class = function (_React$Component) {
         Object(preact_min["h"])(
           'div',
           {
-            className: classnames_default()({ 'daysContentItemSelected': type === Days.type.day && !!day && day === d && year === y && month === m }, 'cellContent', (_cx5 = {}, _cx5['daysDayRangeFrom'] = f, _cx5), (_cx6 = {}, _cx6['daysDayRangeTo'] = t, _cx6), (_cx7 = {}, _cx7['teamCalendarItemBetween'] = !!d && compareDateObjects({ year: yearFrom, month: monthFrom, day: dayFrom }, { year: y, month: m, day: d }) === 0 && yearTo, _cx7), (_cx8 = {}, _cx8['teamCalendarItemBetween'] = !!d && compareDateObjects({ year: yearTo, month: monthTo, day: dayTo }, { year: y, month: m, day: d }) === 0 && yearFrom, _cx8), (_cx9 = {}, _cx9[!_this2.isDisable(d, m, y, lastChange) ? 'teamCalendarItem' : 'daysContentItemDisable'] = !!d, _cx9))
+            className: classnames_default()((_cx6 = {}, _cx6[Days_module_default.a.daysContentItemSelected] = type === Days.type.day && !!day && day === d && year === y && month === m, _cx6), Days_module_default.a.cellContent, (_cx7 = {}, _cx7[Days_module_default.a.daysDayRangeFrom] = f, _cx7), (_cx8 = {}, _cx8[Days_module_default.a.daysDayRangeTo] = t, _cx8), (_cx9 = {}, _cx9[Days_module_default.a.calendarItemBetween] = (f || t) && dayFrom && dayTo, _cx9), (_cx10 = {}, _cx10[!_this2.isDisable(d, m, y, lastChange) ? Team_module_default.a.teamCalendarItem : Days_module_default.a.daysContentItemDisable] = !!d, _cx10))
           },
           Object(preact_min["h"])(
             'div',
-            { className: 'cellContentText' },
+            { className: Days_module_default.a.cellContentText },
             d
           )
         )
@@ -6974,7 +7038,7 @@ var Days_Days = (Days__temp2 = Days__class = function (_React$Component) {
 
       return { component: Object(preact_min["h"])(
           'div',
-          { className: 'daysContentRow' },
+          { key: 'week-' + d, className: Days_module_default.a.daysContentRow },
           items
         ), day: d, end: end };
     };
@@ -6997,20 +7061,22 @@ var Days_Days = (Days__temp2 = Days__class = function (_React$Component) {
       { className: classnames_default()(cnBox) },
       Object(preact_min["h"])(
         'div',
-        { className: 'daysBodyBox' },
+        { className: Days_module_default.a.daysBodyBox },
         Object(preact_min["h"])(
           'div',
-          { className: classnames_default()('daysColumnBox', 'headerStyle', 'teamCalendarTitle') },
+          { className: classnames_default()(Days_module_default.a.daysColumnBox, Team_module_default.a.teamCalendarTitle) },
           constants[lg].daysOfWeek.map(function (a, i) {
-            var _cx10, _cx11;
+            var _cx11, _cx12, _cx13;
 
             return Object(preact_min["h"])(
               'div',
-              { className: classnames_default()((_cx10 = {}, _cx10['daysLeft'] = i === 0, _cx10), (_cx11 = {}, _cx11['daysRight'] = i === 6, _cx11), 'daysColumnItem', 'teamCalendarTitleWeek', { 'teamCalendarTitleWeekend': i >= 5 })
+              {
+                key: 'days-of-week-' + i,
+                className: classnames_default()((_cx11 = {}, _cx11[Days_module_default.a.daysLeft] = i === 0, _cx11), (_cx12 = {}, _cx12[Days_module_default.a.daysRight] = i === 6, _cx12), Days_module_default.a.daysColumnItem, Team_module_default.a.teamCalendarTitleWeek, (_cx13 = {}, _cx13[Team_module_default.a.teamCalendarTitleWeekend] = i >= 5, _cx13))
               },
               Object(preact_min["h"])(
                 'div',
-                { className: 'columnCellContentText' },
+                { className: Days_module_default.a.columnCellContentText },
                 a
               )
             );
@@ -7018,7 +7084,7 @@ var Days_Days = (Days__temp2 = Days__class = function (_React$Component) {
         ),
         Object(preact_min["h"])(
           'div',
-          { className: 'daysContentBox' },
+          { className: Days_module_default.a.daysContentBox },
           renderMonth(dayInWeek, countDayInMonth)
         )
       )
@@ -7026,7 +7092,7 @@ var Days_Days = (Days__temp2 = Days__class = function (_React$Component) {
   };
 
   return Days;
-}(preact_compat_es["default"].Component), Days__class.type = {
+}(Component$1), Days__class.type = {
   day: 'DAY',
   range: 'RANGE'
 }, Days__temp2);
@@ -7036,16 +7102,12 @@ Days_Days.defaultProps = {
   lg: constants.lg.ru
 };
 
-/* harmony default export */ var src_common_Days = (Days_Days);
-// EXTERNAL MODULE: ./src/common/Time.sass
-var common_Time = __webpack_require__("093b");
-var Time_default = /*#__PURE__*/__webpack_require__.n(common_Time);
+/* harmony default export */ var common_Days = (Days_Days);
+// EXTERNAL MODULE: ./src/img/clock.svg
+var clock = __webpack_require__("O39C");
+var clock_default = /*#__PURE__*/__webpack_require__.n(clock);
 
-// EXTERNAL MODULE: ./src/common/img/svg/baseline-schedule-24px.svg
-var baseline_schedule_24px = __webpack_require__("32iL");
-var baseline_schedule_24px_default = /*#__PURE__*/__webpack_require__.n(baseline_schedule_24px);
-
-// CONCATENATED MODULE: ./src/common/img/TimeIcon.jsx
+// CONCATENATED MODULE: ./src/components/icons/TimeIcon.jsx
 var TimeIcon__extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -7061,8 +7123,8 @@ function TimeIcon__inherits(subClass, superClass) { if (typeof superClass !== "f
 
 
 
-var TimeIcon_TimeIcon = function (_React$Component) {
-  TimeIcon__inherits(TimeIcon, _React$Component);
+var TimeIcon_TimeIcon = function (_Component) {
+  TimeIcon__inherits(TimeIcon, _Component);
 
   function TimeIcon() {
     var _temp, _this, _ret;
@@ -7073,21 +7135,16 @@ var TimeIcon_TimeIcon = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = TimeIcon__possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.render = function () {
-      return Object(preact_min["h"])(common_img_Icon, TimeIcon__extends({ icon: baseline_schedule_24px_default.a }, _this.props));
+    return _ret = (_temp = (_this = TimeIcon__possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.render = function () {
+      return Object(preact_min["h"])(icons_Icon, TimeIcon__extends({ icon: clock_default.a }, _this.props));
     }, _temp), TimeIcon__possibleConstructorReturn(_this, _ret);
   }
 
   return TimeIcon;
-}(preact_compat_es["default"].Component);
+}(Component$1);
 
-TimeIcon_TimeIcon.porpTypes = {
-  children: prop_types_default.a.any,
-  className: prop_types_default.a.string
-};
-
-/* harmony default export */ var img_TimeIcon = (TimeIcon_TimeIcon);
-// CONCATENATED MODULE: ./src/common/MaskedInput/adjustCaretPosition.js
+/* harmony default export */ var icons_TimeIcon = (TimeIcon_TimeIcon);
+// CONCATENATED MODULE: ./src/components/common/MaskedInput/adjustCaretPosition.js
 var defaultArray = [];
 var emptyString = '';
 
@@ -7346,10 +7403,10 @@ function adjustCaretPosition(_ref) {
     }
   }
 }
-// CONCATENATED MODULE: ./src/common/MaskedInput/constants.js
+// CONCATENATED MODULE: ./src/components/common/MaskedInput/constants.js
 var constants_placeholderChar = '_';
 var strFunction = 'function';
-// CONCATENATED MODULE: ./src/common/MaskedInput/utilities.js
+// CONCATENATED MODULE: ./src/components/common/MaskedInput/utilities.js
 
 
 var emptyArray = [];
@@ -7397,7 +7454,7 @@ function processCaretTraps(mask) {
 
   return { maskWithoutCaretTraps: mask, indexes: indexes };
 }
-// CONCATENATED MODULE: ./src/common/MaskedInput/conformToMask.js
+// CONCATENATED MODULE: ./src/components/common/MaskedInput/conformToMask.js
 
 
 
@@ -7647,7 +7704,7 @@ function conformToMask() {
 
   return { conformedValue: conformedValue, meta: { someCharsRejected: someCharsRejected } };
 }
-// CONCATENATED MODULE: ./src/common/MaskedInput/createTextMaskInputElement.js
+// CONCATENATED MODULE: ./src/components/common/MaskedInput/createTextMaskInputElement.js
 var createTextMaskInputElement__extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -7868,7 +7925,7 @@ function getSafeRawValue(inputValue) {
     throw new Error("The 'value' provided to Text Mask needs to be a string or a number. The value " + ('received was:\n\n ' + JSON.stringify(inputValue)));
   }
 }
-// CONCATENATED MODULE: ./src/common/MaskedInput/MaskedInput.jsx
+// CONCATENATED MODULE: ./src/components/common/MaskedInput/MaskedInput.jsx
 var MaskedInput__extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -7885,8 +7942,8 @@ function MaskedInput__inherits(subClass, superClass) { if (typeof superClass !==
 
 
 
-var MaskedInput_MaskedInput = function (_React$Component) {
-  MaskedInput__inherits(MaskedInput, _React$Component);
+var MaskedInput_MaskedInput = function (_Component) {
+  MaskedInput__inherits(MaskedInput, _Component);
 
   function MaskedInput() {
     MaskedInput__classCallCheck(this, MaskedInput);
@@ -7895,7 +7952,7 @@ var MaskedInput_MaskedInput = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    var _this = MaskedInput__possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args)));
+    var _this = MaskedInput__possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args)));
 
     _this.onBlur = _this.onBlur.bind(_this);
     _this.onChange = _this.onChange.bind(_this);
@@ -7960,7 +8017,7 @@ var MaskedInput_MaskedInput = function (_React$Component) {
   };
 
   return MaskedInput;
-}(preact_compat_es["default"].Component);
+}(Component$1);
 
 
 
@@ -7972,11 +8029,11 @@ MaskedInput_MaskedInput.defaultProps = {
 };
 
 
-// EXTERNAL MODULE: ./node_modules/react-text-mask/dist/reactTextMask.js
-var reactTextMask = __webpack_require__("PQ84");
-var reactTextMask_default = /*#__PURE__*/__webpack_require__.n(reactTextMask);
+// EXTERNAL MODULE: ./src/components/common/Time.module.sass
+var Time_module = __webpack_require__("19SZ");
+var Time_module_default = /*#__PURE__*/__webpack_require__.n(Time_module);
 
-// CONCATENATED MODULE: ./src/common/Time.jsx
+// CONCATENATED MODULE: ./src/components/common/Time.jsx
 
 
 function Time__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -7993,12 +8050,8 @@ function Time__inherits(subClass, superClass) { if (typeof superClass !== "funct
 
 
 
-
-/*import InputMask from 'react-input-mask';
-import MaskInput from 'react-text-mask';*/
-
-var Time_Time = function (_React$Component) {
-  Time__inherits(Time, _React$Component);
+var Time_Time = function (_Component) {
+  Time__inherits(Time, _Component);
 
   function Time() {
     var _temp, _this, _ret;
@@ -8009,7 +8062,7 @@ var Time_Time = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = Time__possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.state = {
+    return _ret = (_temp = (_this = Time__possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {
       value: ''
     }, _this.handlerOnInput = function (e) {
       var onChange = _this.props.onChange;
@@ -8042,12 +8095,12 @@ var Time_Time = function (_React$Component) {
 
     return Object(preact_min["h"])(
       'div',
-      { className: classnames_default()('tmBox', cnBox) },
+      { className: classnames_default()(Time_module_default.a.tmBox, cnBox) },
       Object(preact_min["h"])(
         'div',
-        { className: classnames_default()('tmInputBox') },
+        { className: classnames_default()(Time_module_default.a.tmInputBox) },
         Object(preact_min["h"])(MaskedInput_MaskedInput, {
-          className: classnames_default()('tmInput', (_cx = {}, _cx['inputError'] = error, _cx)),
+          className: classnames_default()(Time_module_default.a.tmInput, (_cx = {}, _cx[Time_module_default.a.inputError] = error, _cx)),
           placeholderChar: ' ',
           mask: [/[0-9]/, /[0-9]?/, ':', /[0-9]/, /[0-9]?/],
           guide: false,
@@ -8056,51 +8109,28 @@ var Time_Time = function (_React$Component) {
           value: value,
           onChange: this.handlerOnInput
         }),
-        Object(preact_min["h"])(img_TimeIcon, {
-          className: classnames_default()('tmInputIconBox', (_cx2 = {}, _cx2['btmIcon'] = !!onClickIcon, _cx2), 'tmInputIcon'),
+        Object(preact_min["h"])(icons_TimeIcon, {
+          className: classnames_default()(Time_module_default.a.tmInputIconBox, Time_module_default.a.tmInputIcon, (_cx2 = {}, _cx2[Time_module_default.a.btmIcon] = !!onClickIcon, _cx2)),
           onClick: onClickIcon
         })
       ),
       onSave && Object(preact_min["h"])(
         'div',
-        { className: classnames_default()('tmButton', (_cx3 = {}, _cx3['tmButtonDisable'] = disableSave, _cx3)), onClick: disableSave || onSave },
+        { className: classnames_default()(Time_module_default.a.tmButton, (_cx3 = {}, _cx3[Time_module_default.a.tmButtonDisable] = disableSave, _cx3)), onClick: disableSave || onSave },
         '\u041F\u0440\u0438\u043C\u0435\u043D\u0438\u0442\u044C'
       )
     );
   };
 
   return Time;
-}(preact_compat_es["default"].Component);
+}(Component$1);
 
 Time_Time.defaultProps = {
   placeholder: '00:00'
 };
 
-/* harmony default export */ var src_common_Time = (Time_Time);
-// CONCATENATED MODULE: ./src/utils/func.js
-function concatEvents(events) {
-  if (!events || events.length <= 0) return function () {};
-  var eventsNotNull = events.filter(function (a) {
-    return !!a;
-  });
-  return function (args) {
-    for (var i = 0; i < eventsNotNull.length; i++) {
-      var event = eventsNotNull[i];
-      if (event) event(args);
-    }
-  };
-}
-
-function isnull(value, defaultValue) {
-  if (value === 0 || value === false || value === '') return value;
-
-  return value || defaultValue;
-}
-
-function exists(value) {
-  return value === 0 || value === false || value === '' || value;
-}
-// CONCATENATED MODULE: ./src/common/Calendar.jsx
+/* harmony default export */ var common_Time = (Time_Time);
+// CONCATENATED MODULE: ./src/components/common/Calendar.jsx
 var Calendar__extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var Calendar__class, Calendar__temp2;
@@ -8122,9 +8152,8 @@ function Calendar__inherits(subClass, superClass) { if (typeof superClass !== "f
 
 
 
-
-var Calendar_Calendar = (Calendar__temp2 = Calendar__class = function (_React$Component) {
-  Calendar__inherits(Calendar, _React$Component);
+var Calendar_Calendar = (Calendar__temp2 = Calendar__class = function (_Component) {
+  Calendar__inherits(Calendar, _Component);
 
   function Calendar() {
     var _temp, _this, _ret;
@@ -8135,7 +8164,7 @@ var Calendar_Calendar = (Calendar__temp2 = Calendar__class = function (_React$Co
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = Calendar__possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.state = {
+    return _ret = (_temp = (_this = Calendar__possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {
       year: 0,
       month: 0,
       day: 0,
@@ -8233,8 +8262,8 @@ var Calendar_Calendar = (Calendar__temp2 = Calendar__class = function (_React$Co
         month: showMonth,
         time: time
       },
-      Object(preact_min["h"])(src_common_Days, {
-        type: src_common_Days.type.day,
+      Object(preact_min["h"])(common_Days, {
+        type: common_Days.type.day,
         onChange: function onChange(v) {
           return _this2.handlerOnChange(v, time);
         },
@@ -8244,11 +8273,11 @@ var Calendar_Calendar = (Calendar__temp2 = Calendar__class = function (_React$Co
         lteCurrentDate: lteCurrentDate,
         gteCurrentDate: gteCurrentDate
       }),
-      showTime && Object(preact_min["h"])(src_common_Time, {
+      showTime && Object(preact_min["h"])(common_Time, {
         onClickIcon: function onClickIcon() {
           return _this2.setState({ showType: Calendar.showType.time });
         },
-        className: 'crTimeField',
+        className: Calendar_module_default.a.crTimeField,
         defaultValue: timeFromObject(time),
         onChange: function onChange(t) {
           _this2.setState({ time: timeToObject(t), timeError: false });
@@ -8264,15 +8293,19 @@ var Calendar_Calendar = (Calendar__temp2 = Calendar__class = function (_React$Co
   };
 
   return Calendar;
-}(preact_compat_es["default"].Component), Calendar__class.showType = common_CalendarTemplate.showType, Calendar__temp2);
+}(Component$1), Calendar__class.showType = common_CalendarTemplate.showType, Calendar__temp2);
 
 
-/* harmony default export */ var src_common_Calendar = (Calendar_Calendar);
-// EXTERNAL MODULE: ./src/common/TextField.sass
-var common_TextField = __webpack_require__("GCfV");
-var TextField_default = /*#__PURE__*/__webpack_require__.n(common_TextField);
+/* harmony default export */ var common_Calendar = (Calendar_Calendar);
+// EXTERNAL MODULE: ./src/components/common/TextField.module.sass
+var TextField_module = __webpack_require__("Uw5f");
+var TextField_module_default = /*#__PURE__*/__webpack_require__.n(TextField_module);
 
-// CONCATENATED MODULE: ./src/common/TextField.jsx
+// EXTERNAL MODULE: ./src/components/styles/TeamColor.module.sass
+var TeamColor_module = __webpack_require__("TS86");
+var TeamColor_module_default = /*#__PURE__*/__webpack_require__.n(TeamColor_module);
+
+// CONCATENATED MODULE: ./src/components/common/TextField.jsx
 
 
 function TextField__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -8286,8 +8319,9 @@ function TextField__inherits(subClass, superClass) { if (typeof superClass !== "
 
 
 
-var TextField_TextField = function (_React$Component) {
-  TextField__inherits(TextField, _React$Component);
+
+var TextField_TextField = function (_Component) {
+  TextField__inherits(TextField, _Component);
 
   function TextField() {
     var _temp, _this, _ret;
@@ -8298,7 +8332,7 @@ var TextField_TextField = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = TextField__possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.state = {
+    return _ret = (_temp = (_this = TextField__possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {
       isChange: false
     }, _this.handlerOnChange = function (e) {
       var onChange = _this.props.onChange;
@@ -8319,14 +8353,17 @@ var TextField_TextField = function (_React$Component) {
         cnBox = _props.className,
         onFocus = _props.onFocus,
         onBlur = _props.onBlur,
-        cnInput = _props.classInput;
+        cnInput = _props.classInput,
+        refInput = _props.refInput;
     var isChange = this.state.isChange;
+
 
     return Object(preact_min["h"])(
       'div',
-      { className: classnames_default()('textfieldBox', cnBox) },
+      { className: classnames_default()(TextField_module_default.a.textfieldBox, cnBox) },
       Object(preact_min["h"])('input', {
-        className: classnames_default()('textfieldInput', cnInput),
+        ref: refInput,
+        className: classnames_default()(TextField_module_default.a.textfieldInput, TeamColor_module_default.a.componentBorder, cnInput),
         type: 'text',
         value: value || !isChange && defaultValue || '',
         placeholder: placeholder,
@@ -8334,23 +8371,23 @@ var TextField_TextField = function (_React$Component) {
         onBlur: onBlur,
         onFocus: onFocus
       }),
-      Object(preact_min["h"])(
+      icon && Object(preact_min["h"])(
         'div',
-        { className: 'textfieldIconBox' },
+        { className: TextField_module_default.a.textfieldIconBox },
         icon
       )
     );
   };
 
   return TextField;
-}(preact_compat_es["default"].Component);
+}(Component$1);
 
-/* harmony default export */ var src_common_TextField = (TextField_TextField);
-// EXTERNAL MODULE: ./src/common/img/svg/baseline-date_range-24px.svg
-var baseline_date_range_24px = __webpack_require__("ZYX9");
-var baseline_date_range_24px_default = /*#__PURE__*/__webpack_require__.n(baseline_date_range_24px);
+/* harmony default export */ var common_TextField = (TextField_TextField);
+// EXTERNAL MODULE: ./src/img/calendar.svg
+var calendar = __webpack_require__("Dc2o");
+var calendar_default = /*#__PURE__*/__webpack_require__.n(calendar);
 
-// CONCATENATED MODULE: ./src/common/img/DateIcon.jsx
+// CONCATENATED MODULE: ./src/components/icons/DateIcon.jsx
 var DateIcon__extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -8366,8 +8403,8 @@ function DateIcon__inherits(subClass, superClass) { if (typeof superClass !== "f
 
 
 
-var DateIcon_DateIcon = function (_React$Component) {
-  DateIcon__inherits(DateIcon, _React$Component);
+var DateIcon_DateIcon = function (_Component) {
+  DateIcon__inherits(DateIcon, _Component);
 
   function DateIcon() {
     var _temp, _this, _ret;
@@ -8378,25 +8415,20 @@ var DateIcon_DateIcon = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = DateIcon__possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.render = function () {
-      return Object(preact_min["h"])(common_img_Icon, DateIcon__extends({ icon: baseline_date_range_24px_default.a }, _this.props));
+    return _ret = (_temp = (_this = DateIcon__possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.render = function () {
+      return Object(preact_min["h"])(icons_Icon, DateIcon__extends({ icon: calendar_default.a }, _this.props));
     }, _temp), DateIcon__possibleConstructorReturn(_this, _ret);
   }
 
   return DateIcon;
-}(preact_compat_es["default"].Component);
+}(Component$1);
 
-DateIcon_DateIcon.porpTypes = {
-  children: prop_types_default.a.any,
-  className: prop_types_default.a.string
-};
+/* harmony default export */ var icons_DateIcon = (DateIcon_DateIcon);
+// EXTERNAL MODULE: ./src/components/common/DateField.module.sass
+var DateField_module = __webpack_require__("pSBE");
+var DateField_module_default = /*#__PURE__*/__webpack_require__.n(DateField_module);
 
-/* harmony default export */ var img_DateIcon = (DateIcon_DateIcon);
-// EXTERNAL MODULE: ./src/common/DateField.sass
-var common_DateField = __webpack_require__("It0k");
-var DateField_default = /*#__PURE__*/__webpack_require__.n(common_DateField);
-
-// CONCATENATED MODULE: ./src/common/DateField.jsx
+// CONCATENATED MODULE: ./src/components/common/DateField.jsx
 
 
 function DateField__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -8414,8 +8446,10 @@ function DateField__inherits(subClass, superClass) { if (typeof superClass !== "
 
 
 
-var DateField_DateField = function (_React$Component) {
-  DateField__inherits(DateField, _React$Component);
+
+
+var DateField_DateField = function (_Component) {
+  DateField__inherits(DateField, _Component);
 
   function DateField() {
     var _temp, _this, _ret;
@@ -8426,7 +8460,7 @@ var DateField_DateField = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = DateField__possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.state = {
+    return _ret = (_temp = (_this = DateField__possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {
       value: '',
       isChange: false,
       error: false
@@ -8455,7 +8489,7 @@ var DateField_DateField = function (_React$Component) {
 
 
       if (value && ignoreTime && ignoreDay && ignoreMonth) {
-        var v = parseInt(value);
+        var v = parseInt(value, 10);
         if (v < 50) value = (v + 2000).toString();else if (v > 50 && v < 100) value = (v + 1000).toString();
       }
 
@@ -8513,7 +8547,8 @@ var DateField_DateField = function (_React$Component) {
         onClickIcon = _props.onClickIcon,
         cnBox = _props.className,
         defaultValue = _props.defaultValue,
-        onInput = _props.onInput;
+        onInput = _props.onInput,
+        refInput = _props.refInput;
 
     prpValue = datetimeToText(prpValue);
 
@@ -8524,13 +8559,14 @@ var DateField_DateField = function (_React$Component) {
 
     var value = !isChange && !error && prpValue || (isChange || error) && stValue || defaultValue;
 
-    return Object(preact_min["h"])(src_common_TextField, {
-      className: classnames_default()('rootInput', cnBox),
-      classInput: classnames_default()((_cx = {}, _cx['dfInputError'] = error, _cx)),
+    return Object(preact_min["h"])(common_TextField, {
+      refInput: refInput,
+      className: classnames_default()(Team_module_default.a.rootInput, cnBox),
+      classInput: classnames_default()((_cx = {}, _cx[DateField_module_default.a.dfInputError] = error, _cx)),
       value: value,
       placeholder: placeholder,
       onChange: this.handlerOnChange,
-      icon: Object(preact_min["h"])(img_DateIcon, { className: classnames_default()('rootIcon'), onClick: concatEvents([onClickIcon]) }),
+      icon: Object(preact_min["h"])(icons_DateIcon, { className: classnames_default()(TeamColor_module_default.a.rootIcon, Team_module_default.a.rootIcon), onClick: concatEvents([onClickIcon]) }),
       onBlur: concatEvents([this.handlerOnBlur, onBlur]),
       onFocus: onFocus,
       onInput: onInput
@@ -8538,7 +8574,7 @@ var DateField_DateField = function (_React$Component) {
   };
 
   return DateField;
-}(preact_compat_es["default"].Component);
+}(Component$1);
 
 DateField_DateField.defaultProps = {
   ignoreTime: false,
@@ -8548,16 +8584,182 @@ DateField_DateField.defaultProps = {
   lteCurrentDate: false
 };
 
-/* harmony default export */ var src_common_DateField = (DateField_DateField);
-// EXTERNAL MODULE: ./src/OtcDate/OtcDate.sass
-var OtcDate_OtcDate = __webpack_require__("1eyE");
-var OtcDate_default = /*#__PURE__*/__webpack_require__.n(OtcDate_OtcDate);
+/* harmony default export */ var common_DateField = (DateField_DateField);
+// EXTERNAL MODULE: ./src/components/OtcDate/OtcDate.module.sass
+var OtcDate_module = __webpack_require__("ba5V");
+var OtcDate_module_default = /*#__PURE__*/__webpack_require__.n(OtcDate_module);
 
-// EXTERNAL MODULE: ./src/common/Team.sass
-var Team = __webpack_require__("R5fR");
-var Team_default = /*#__PURE__*/__webpack_require__.n(Team);
+// EXTERNAL MODULE: ./src/components/common/Align.module.sass
+var Align_module = __webpack_require__("VSaL");
+var Align_module_default = /*#__PURE__*/__webpack_require__.n(Align_module);
 
-// CONCATENATED MODULE: ./src/OtcDate/OtcDate.jsx
+// EXTERNAL MODULE: ./node_modules/uid/index.js
+var uid = __webpack_require__("i81k");
+var uid_default = /*#__PURE__*/__webpack_require__.n(uid);
+
+// CONCATENATED MODULE: ./src/components/common/Align.jsx
+
+
+function Align__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function Align__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function Align__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+var Align_Align = function (_Component) {
+  Align__inherits(Align, _Component);
+
+  function Align() {
+    var _temp, _this, _ret;
+
+    Align__classCallCheck(this, Align);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = Align__possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0
+    }, _this.correctPosition = function (ref) {
+      var _this$props$refPositi = _this.props.refPositionRelative,
+          refPositionRelative = _this$props$refPositi === undefined ? ref : _this$props$refPositi;
+
+
+      if (refPositionRelative) {
+        var rect = refPositionRelative.getBoundingClientRect();
+        _this.setState({ bottom: rect.bottom, left: rect.left, top: rect.top, right: rect.right });
+      }
+    }, _this.doThisAndAllParent = function (ref, func) {
+      if (!ref) return;
+      func(ref);
+
+      if (ref.parentNode) {
+        _this.doThisAndAllParent(ref.parentNode, func);
+      }
+    }, _this.handlerOnScroll = function (e) {
+      _this.correctPosition();
+
+      var onScrollParent = _this.props.onScrollParent;
+
+      if (e && e.srcElement) {
+        var element = e.srcElement;
+        if (element.nodeName !== "DIV") return;
+      }
+
+      if (onScrollParent) onScrollParent(e);
+    }, _this.handlerOnClickOutside = function (e) {
+      var onClickOutside = _this.props.onClickOutside;
+
+      if (!onClickOutside) return;
+
+      var _this$state = _this.state,
+          top = _this$state.top,
+          right = _this$state.right,
+          bottom = _this$state.bottom,
+          left = _this$state.left;
+      var x = e.x,
+          y = e.y;
+
+
+      if (top && right && bottom && left) {
+        if (top > y || bottom < y || x < left || x > right) {
+          onClickOutside();
+        }
+      }
+    }, _this.subscribeKey = uid_default()(), _this.subscribeToEvents = function (ref) {
+      _this.doThisAndAllParent(ref, function (rf) {
+        return rf.onscroll = eventAdd(rf.onscroll, _this.handlerOnScroll, _this.subscribeKey);
+      });
+      window.onresize = eventAdd(window.onresize, _this.correctPosition, _this.subscribeKey);
+      window.onclick = eventAdd(window.onclick, _this.handlerOnClickOutside, _this.subscribeKey);
+    }, _this.unsubscribeFromEvent = function (ref) {
+      _this.doThisAndAllParent(ref, function (rf) {
+        return rf.onscroll = eventRemove(rf.onscroll, _this.subscribeKey);
+      });
+      window.onresize = eventRemove(window.onresize, _this.subscribeKey);
+      window.onclick = eventRemove(window.onclick, _this.subscribeKey);
+    }, _temp), Align__possibleConstructorReturn(_this, _ret);
+  }
+
+  Align.prototype.componentWillUnmount = function componentWillUnmount() {
+    var refPositionRelative = this.props.refPositionRelative;
+
+    this.unsubscribeFromEvent(refPositionRelative);
+  };
+
+  Align.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProp) {
+    var refPositionRelative = nextProp.refPositionRelative,
+        visible = nextProp.visible;
+
+    //если нужно показать и был скрыт
+
+    if (refPositionRelative && visible && !this.props.visible) {
+      this.subscribeToEvents(refPositionRelative);
+      this.correctPosition(refPositionRelative);
+    }
+    //если нужно скрыть и был показан
+    else if (!visible && this.props.visible && this.props.refPositionRelative) {
+        this.unsubscribeFromEvent(this.props.refPositionRelative);
+      }
+      //если поменялся ref а старый существует и был показан
+      else if (refPositionRelative && this.props.refPositionRelative && refPositionRelative !== this.props.refPositionRelative && this.props.visible) {
+          this.unsubscribeFromEvent(this.props.refPositionRelative);
+          this.subscribeToEvents(refPositionRelative);
+          this.correctPosition(refPositionRelative);
+        }
+        //если ref пропал
+        else if (!refPositionRelative && this.props.refPositionRelative) {
+            this.unsubscribeFromEvent(this.props.refPositionRelative);
+          }
+          //если ref появился и нужно показать
+          else if (refPositionRelative && !this.props.refPositionRelative && visible) {
+              this.subscribeToEvents(refPositionRelative);
+              this.correctPosition(refPositionRelative);
+            }
+  };
+
+  Align.prototype.render = function render() {
+    var _state = this.state,
+        bottom = _state.bottom,
+        left = _state.left;
+    var _props = this.props,
+        refPositionRelative = _props.refPositionRelative,
+        visible = _props.visible,
+        children = _props.children,
+        zIndex = _props.zIndex;
+
+    if (!visible || !refPositionRelative) return null;
+    return Object(preact_min["h"])(
+      'div',
+      {
+        onClick: function onClick(e) {
+          return e.stopPropagation();
+        },
+        className: Align_module_default.a.popup,
+        style: { top: bottom, left: left, zIndex: zIndex }
+      },
+      children
+    );
+  };
+
+  return Align;
+}(Component$1);
+
+Align_Align.defaultProps = {
+  zIndex: 1
+};
+
+/* harmony default export */ var common_Align = (Align_Align);
+// CONCATENATED MODULE: ./src/components/OtcDate/OtcDate.jsx
 
 
 function OtcDate__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -8575,8 +8777,9 @@ function OtcDate__inherits(subClass, superClass) { if (typeof superClass !== "fu
 
 
 
-var OtcDate_OtcDate_OtcDate = function (_React$Component) {
-  OtcDate__inherits(OtcDate, _React$Component);
+
+var OtcDate_OtcDate = function (_Component) {
+  OtcDate__inherits(OtcDate, _Component);
 
   function OtcDate() {
     var _temp, _this, _ret;
@@ -8587,22 +8790,26 @@ var OtcDate_OtcDate_OtcDate = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = OtcDate__possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.state = {
+    return _ret = (_temp = (_this = OtcDate__possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {
       open: false,
-      value: ''
+      value: '',
+      isChange: false,
+      refInput: undefined
     }, _this.handlerInputOnChange = function (v) {
+      var canBeChanged = !!_this.props.defaultValue || !_this.props.value;
+
       var onChange = _this.props.onChange;
 
-      _this.setState({ open: false, value: v });
+      _this.setState({ open: false, value: v, isChange: canBeChanged });
       if (onChange) onChange(v);
+    }, _this.handlerOnRefInputChange = function (ref) {
+      var refInput = _this.state.refInput;
+
+      if (refInput !== ref) {
+        _this.setState({ refInput: ref });
+      }
     }, _temp), OtcDate__possibleConstructorReturn(_this, _ret);
   }
-
-  OtcDate.prototype.componentWillMount = function componentWillMount() {
-    var defaultValue = this.props.defaultValue;
-
-    this.setState({ value: defaultValue });
-  };
 
   OtcDate.prototype.render = function render() {
     var _this2 = this;
@@ -8612,16 +8819,20 @@ var OtcDate_OtcDate_OtcDate = function (_React$Component) {
         showTime = _props.showTime,
         timeIsRequired = _props.timeIsRequired,
         lteCurrentDate = _props.lteCurrentDate,
-        gteCurrentDate = _props.gteCurrentDate;
+        gteCurrentDate = _props.gteCurrentDate,
+        classBox = _props.classBox;
     var _state = this.state,
-        value = _state.value,
-        open = _state.open;
+        open = _state.open,
+        refInput = _state.refInput;
 
+
+    var value = this.props.value || this.state.isChange && this.state.value || this.props.defaultValue;
 
     return Object(preact_min["h"])(
       'div',
-      null,
-      Object(preact_min["h"])(src_common_DateField, {
+      { className: classnames_default()(Team_module_default.a.rootCalendarBox, classBox) },
+      Object(preact_min["h"])(common_DateField, {
+        refInput: this.handlerOnRefInputChange,
         value: value,
         placeholder: placeholder,
         onChange: this.handlerInputOnChange,
@@ -8638,31 +8849,44 @@ var OtcDate_OtcDate_OtcDate = function (_React$Component) {
         gteCurrentDate: gteCurrentDate,
         lteCurrentDate: lteCurrentDate
       }),
-      open && Object(preact_min["h"])(src_common_Calendar, {
-        onChange: this.handlerInputOnChange,
-        className: 'rootCalendar',
-        value: value,
-        showTime: showTime,
-        type: src_common_Days.type.day,
-        timeIsRequired: timeIsRequired,
-        gteCurrentDate: gteCurrentDate,
-        lteCurrentDate: lteCurrentDate
-      })
+      Object(preact_min["h"])(
+        common_Align,
+        {
+          onClickOutside: function onClickOutside() {
+            return _this2.setState({ open: false });
+          },
+          onScrollParent: function onScrollParent(e) {
+            if (e && e.srcElement.className && e.srcElement.className.includes("otc-date-close-if-scroll-this")) _this2.setState({ open: false });
+          },
+          visible: open,
+          refPositionRelative: refInput
+        },
+        Object(preact_min["h"])(common_Calendar, {
+          onChange: this.handlerInputOnChange,
+          className: classnames_default()(OtcDate_module_default.a.rootCalendar),
+          value: value,
+          showTime: showTime,
+          type: common_Days.type.day,
+          timeIsRequired: timeIsRequired,
+          gteCurrentDate: gteCurrentDate,
+          lteCurrentDate: lteCurrentDate
+        })
+      )
     );
   };
 
   return OtcDate;
-}(preact_compat_es["default"].Component);
+}(Component$1);
 
-OtcDate_OtcDate_OtcDate.defaultProps = {
-  showTime: true,
+OtcDate_OtcDate.defaultProps = {
+  showTime: false,
   timeIsRequired: false,
   gteCurrentDate: false,
   lteCurrentDate: false
 };
 
-OtcDate_OtcDate_OtcDate.descriptionProps = {
-  placeholder: 'подсказка отображаемое в поле для ввода, если оно пустое',
+OtcDate_OtcDate.descriptionProps = {
+  placeholder: 'подсказка отображаемая в поле для ввода, если оно пустое',
   defaultValue: 'значение по умолчанию, отображается если пользователь не менял значение поля',
   onChange: 'функция вызываемая при изменении значения поля',
   showTime: 'отображать/скрыть время',
@@ -8671,8 +8895,8 @@ OtcDate_OtcDate_OtcDate.descriptionProps = {
   lteCurrentDate: 'не меньше текущей даты'
 };
 
-/* harmony default export */ var src_OtcDate_OtcDate = (OtcDate_OtcDate_OtcDate);
-// CONCATENATED MODULE: ./src/common/CalendarRange.jsx
+/* harmony default export */ var components_OtcDate_OtcDate = (OtcDate_OtcDate);
+// CONCATENATED MODULE: ./src/components/common/CalendarRange.jsx
 var CalendarRange__extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var CalendarRange__class, CalendarRange__temp2;
@@ -8696,8 +8920,8 @@ function CalendarRange__inherits(subClass, superClass) { if (typeof superClass !
 
 
 
-var CalendarRange_CalendarRange = (CalendarRange__temp2 = CalendarRange__class = function (_React$Component) {
-  CalendarRange__inherits(CalendarRange, _React$Component);
+var CalendarRange_CalendarRange = (CalendarRange__temp2 = CalendarRange__class = function (_Component) {
+  CalendarRange__inherits(CalendarRange, _Component);
 
   function CalendarRange() {
     var _temp, _this, _ret;
@@ -8708,7 +8932,7 @@ var CalendarRange_CalendarRange = (CalendarRange__temp2 = CalendarRange__class =
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = CalendarRange__possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.state = {
+    return _ret = (_temp = (_this = CalendarRange__possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {
       year: 0,
       month: 0,
       time: '',
@@ -8831,8 +9055,8 @@ var CalendarRange_CalendarRange = (CalendarRange__temp2 = CalendarRange__class =
         month: showMonth,
         classBox: classBox
       },
-      Object(preact_min["h"])(src_common_Days, {
-        type: src_common_Days.type.range,
+      Object(preact_min["h"])(common_Days, {
+        type: common_Days.type.range,
         onChange: function onChange(v) {
           return _this2.handlerOnChange(v, time);
         },
@@ -8846,12 +9070,12 @@ var CalendarRange_CalendarRange = (CalendarRange__temp2 = CalendarRange__class =
         lteCurrentDateTo: lteCurrentDateTo,
         gteCurrentDateTo: gteCurrentDateTo
       }),
-      showTime && changeType && Object(preact_min["h"])(src_common_Time, {
+      showTime && changeType && Object(preact_min["h"])(common_Time, {
         onClickIcon: function onClickIcon() {
           return _this2.setState({ showType: CalendarRange.showType.time });
         },
         error: timeError,
-        className: classnames_default()('crTimeField'),
+        className: classnames_default()(Calendar_module_default.a.crTimeField),
         defaultValue: timeFromObject(time),
         onChange: function onChange(t) {
           return _this2.setState({ time: timeToObject(t), timeError: false });
@@ -8865,15 +9089,15 @@ var CalendarRange_CalendarRange = (CalendarRange__temp2 = CalendarRange__class =
   };
 
   return CalendarRange;
-}(preact_compat_es["default"].Component), CalendarRange__class.showType = common_CalendarTemplate.showType, CalendarRange__temp2);
+}(Component$1), CalendarRange__class.showType = common_CalendarTemplate.showType, CalendarRange__temp2);
 
 
 /* harmony default export */ var common_CalendarRange = (CalendarRange_CalendarRange);
-// EXTERNAL MODULE: ./src/common/DateRangeField.sass
-var common_DateRangeField = __webpack_require__("Lpqa");
-var DateRangeField_default = /*#__PURE__*/__webpack_require__.n(common_DateRangeField);
+// EXTERNAL MODULE: ./src/components/common/DateRangeField.module.sass
+var DateRangeField_module = __webpack_require__("Zk8y");
+var DateRangeField_module_default = /*#__PURE__*/__webpack_require__.n(DateRangeField_module);
 
-// CONCATENATED MODULE: ./src/common/DateRangeField.jsx
+// CONCATENATED MODULE: ./src/components/common/DateRangeField.jsx
 
 
 function DateRangeField__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -8888,13 +9112,13 @@ function DateRangeField__inherits(subClass, superClass) { if (typeof superClass 
 
 
 
-var DateRangeField_DateRangeField = function (_React$Component) {
-  DateRangeField__inherits(DateRangeField, _React$Component);
+var DateRangeField_DateRangeField = function (_Component) {
+  DateRangeField__inherits(DateRangeField, _Component);
 
   function DateRangeField() {
     DateRangeField__classCallCheck(this, DateRangeField);
 
-    return DateRangeField__possibleConstructorReturn(this, _React$Component.apply(this, arguments));
+    return DateRangeField__possibleConstructorReturn(this, _Component.apply(this, arguments));
   }
 
   DateRangeField.prototype.render = function render() {
@@ -8930,9 +9154,9 @@ var DateRangeField_DateRangeField = function (_React$Component) {
       return Object(preact_min["h"])(
         'div',
         { style: { width: '100%' } },
-        Object(preact_min["h"])(src_common_DateField, {
+        Object(preact_min["h"])(common_DateField, {
           key: key,
-          className: classnames_default()('rootInput', cn),
+          className: classnames_default()(DateRangeField_module_default.a.rootInput, cn),
           value: value,
           defaultValue: defaultValue,
           placeholder: placeholder,
@@ -8944,7 +9168,7 @@ var DateRangeField_DateRangeField = function (_React$Component) {
         }),
         Object(preact_min["h"])(
           'div',
-          { className: 'popUp' },
+          { className: DateRangeField_module_default.a.popUp },
           popUp
         )
       );
@@ -8980,24 +9204,24 @@ var DateRangeField_DateRangeField = function (_React$Component) {
 
     return Object(preact_min["h"])(
       'div',
-      { className: 'rootInputBox' },
+      { className: DateRangeField_module_default.a.rootInputBox },
       elements
     );
   };
 
   return DateRangeField;
-}(preact_compat_es["default"].Component);
+}(Component$1);
 
 DateRangeField_DateRangeField.defaultProps = {
   ignoreTime: false
 };
 
-/* harmony default export */ var src_common_DateRangeField = (DateRangeField_DateRangeField);
-// EXTERNAL MODULE: ./src/OtcDateRange/OtcDateRange.sass
-var OtcDateRange_OtcDateRange = __webpack_require__("NAT+");
-var OtcDateRange_default = /*#__PURE__*/__webpack_require__.n(OtcDateRange_OtcDateRange);
+/* harmony default export */ var common_DateRangeField = (DateRangeField_DateRangeField);
+// EXTERNAL MODULE: ./src/components/OtcDateRange/OtcDateRange.module.sass
+var OtcDateRange_module = __webpack_require__("bkjv");
+var OtcDateRange_module_default = /*#__PURE__*/__webpack_require__.n(OtcDateRange_module);
 
-// CONCATENATED MODULE: ./src/OtcDateRange/OtcDateRange.jsx
+// CONCATENATED MODULE: ./src/components/OtcDateRange/OtcDateRange.jsx
 
 
 function OtcDateRange__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9015,8 +9239,9 @@ function OtcDateRange__inherits(subClass, superClass) { if (typeof superClass !=
 
 
 
-var OtcDateRange_OtcDateRange_OtcDateRange = function (_React$Component) {
-  OtcDateRange__inherits(OtcDateRange, _React$Component);
+
+var OtcDateRange_OtcDateRange = function (_Component) {
+  OtcDateRange__inherits(OtcDateRange, _Component);
 
   function OtcDateRange() {
     var _temp, _this, _ret;
@@ -9027,7 +9252,7 @@ var OtcDateRange_OtcDateRange_OtcDateRange = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = OtcDateRange__possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.state = {
+    return _ret = (_temp = (_this = OtcDateRange__possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {
       open: false,
       valueFrom: '',
       valueTo: '',
@@ -9112,8 +9337,8 @@ var OtcDateRange_OtcDateRange_OtcDateRange = function (_React$Component) {
       var _cx;
 
       return Object(preact_min["h"])(common_CalendarRange, {
-        className: classnames_default()('rootCalendar'),
-        classBox: classnames_default()((_cx = {}, _cx['rcLeft'] = left, _cx)),
+        className: classnames_default()(OtcDateRange_module_default.a.rootCalendar),
+        classBox: classnames_default()((_cx = {}, _cx[OtcDateRange_module_default.a.rcLeft] = left, _cx)),
         gteCurrentDateFrom: gteCurrentDate,
         lteCurrentDateFrom: lteCurrentDate,
         lteCurrentDateTo: lteCurrentDate,
@@ -9121,71 +9346,63 @@ var OtcDateRange_OtcDateRange_OtcDateRange = function (_React$Component) {
         onChange: _this2.handlerInputOnChange,
         value: value,
         showTime: showTime,
-        type: src_common_Days.type.range,
+        type: common_Days.type.range,
         changeType: changeType,
         bottomCmp: showFastRange && Object(preact_min["h"])(
           'div',
-          { className: 'bottomCmp' },
+          { className: OtcDateRange_module_default.a.bottomCmp },
           Object(preact_min["h"])(
             'div',
-            { className: classnames_default()('bottomButton', 'teamFastRange'), onClick: _this2.handlerOnClickCurrentDay },
+            { className: classnames_default()(OtcDateRange_module_default.a.bottomButton, Team_module_default.a.teamFastRange), onClick: _this2.handlerOnClickCurrentDay },
             '\u0437\u0430 \u0434\u0435\u043D\u044C'
           ),
           !lteCurrentDate && Object(preact_min["h"])(
             'div',
-            { className: classnames_default()('bottomButton', 'teamFastRange'), onClick: _this2.handlerOnClickCurrentWeek },
+            { className: classnames_default()(OtcDateRange_module_default.a.bottomButton, Team_module_default.a.teamFastRange), onClick: _this2.handlerOnClickCurrentWeek },
             '\u0437\u0430 \u043D\u0435\u0434\u0435\u043B\u044E'
           ),
           !lteCurrentDate && Object(preact_min["h"])(
             'div',
-            { className: classnames_default()('bottomButton', 'teamFastRange'), onClick: _this2.handlerOnClickCurrentMount },
+            { className: classnames_default()(OtcDateRange_module_default.a.bottomButton, Team_module_default.a.teamFastRange), onClick: _this2.handlerOnClickCurrentMount },
             '\u0437\u0430 \u043C\u0435\u0441\u044F\u0446'
           )
         )
       });
     };
 
-    return Object(preact_min["h"])(
-      'div',
-      null,
-      Object(preact_min["h"])(
-        'div',
-        { className: 'rootInputBox' },
-        Object(preact_min["h"])(src_common_DateRangeField, {
-          onChange: function onChange(f, t) {
-            return _this2.handlerInputOnChange(f + ' - ' + t);
-          },
-          onInput: function onInput() {
-            _this2.setState({ open: false });
-          },
-          placeholderFrom: placeholderFrom,
-          placeholderTo: placeholderTo,
-          valueFrom: valueFrom,
-          valueTo: valueTo,
-          onFocusTo: function onFocusTo() {
-            return _this2.setState({ open: constants.rangeValueType.to !== changeType || true, changeType: constants.rangeValueType.to });
-          },
-          onFocusFrom: function onFocusFrom() {
-            return _this2.setState({ open: constants.rangeValueType.from !== changeType || true, changeType: constants.rangeValueType.from });
-          },
-          onClickTo: function onClickTo() {
-            return _this2.setState({ open: constants.rangeValueType.to !== changeType || !open, changeType: constants.rangeValueType.to });
-          },
-          onClickFrom: function onClickFrom() {
-            return _this2.setState({ open: constants.rangeValueType.from !== changeType || !open, changeType: constants.rangeValueType.from });
-          },
-          popUpFrom: open && constants.rangeValueType.from === changeType && renderCalendar(),
-          popUpTo: open && constants.rangeValueType.to === changeType && renderCalendar(true),
-          ignoreTime: !showTime
-        })
-      )
-    );
+    return Object(preact_min["h"])(common_DateRangeField, {
+      onChange: function onChange(f, t) {
+        return _this2.handlerInputOnChange(f + ' - ' + t);
+      },
+      onInput: function onInput() {
+        _this2.setState({ open: false });
+      },
+      placeholderFrom: placeholderFrom,
+      placeholderTo: placeholderTo,
+      valueFrom: valueFrom,
+      valueTo: valueTo,
+      onFocusTo: function onFocusTo() {
+        return _this2.setState({ open: constants.rangeValueType.to !== changeType || true, changeType: constants.rangeValueType.to });
+      },
+      onFocusFrom: function onFocusFrom() {
+        return _this2.setState({ open: constants.rangeValueType.from !== changeType || true, changeType: constants.rangeValueType.from });
+      },
+      onClickTo: function onClickTo() {
+        return _this2.setState({ open: constants.rangeValueType.to !== changeType || !open, changeType: constants.rangeValueType.to });
+      },
+      onClickFrom: function onClickFrom() {
+        return _this2.setState({ open: constants.rangeValueType.from !== changeType || !open, changeType: constants.rangeValueType.from });
+      },
+      popUpFrom: open && constants.rangeValueType.from === changeType && renderCalendar(),
+      popUpTo: open && constants.rangeValueType.to === changeType && renderCalendar(true),
+      ignoreTime: !showTime
+    });
   };
 
   return OtcDateRange;
-}(preact_compat_es["default"].Component);
+}(Component$1);
 
-OtcDateRange_OtcDateRange_OtcDateRange.defaultProps = {
+OtcDateRange_OtcDateRange.defaultProps = {
   showTime: true,
   showFastRange: true,
   lg: constants.lg.ru,
@@ -9195,10 +9412,10 @@ OtcDateRange_OtcDateRange_OtcDateRange.defaultProps = {
   placeholderTo: 'По'
 };
 
-OtcDateRange_OtcDateRange_OtcDateRange.descriptionProps = {
-  placeholderFrom: 'подсказка, для значения поля `с`, отображаемое в поле для ввода, если оно пустое',
+OtcDateRange_OtcDateRange.descriptionProps = {
+  placeholderFrom: 'подсказка, для значения поля `с`, отображаемая в поле для ввода, если оно пустое',
   defaultValueFrom: 'значение поля `с` по умолчанию, отображается если пользователь не менял значение поля',
-  placeholderTo: 'подсказка, для значения поля `по`, отображаемое в поле для ввода, если оно пустое',
+  placeholderTo: 'подсказка, для значения поля `по`, отображаемая в поле для ввода, если оно пустое',
   defaultValueTo: 'значение поля `по` по умолчанию, отображается если пользователь не менял значение поля',
   onChange: 'функция вызываемая при изменении значения поля',
   showTime: 'отображать поле для ввода даты',
@@ -9207,12 +9424,12 @@ OtcDateRange_OtcDateRange_OtcDateRange.descriptionProps = {
   lteCurrentDate: 'не меньше текущей даты'
 };
 
-/* harmony default export */ var src_OtcDateRange_OtcDateRange = (OtcDateRange_OtcDateRange_OtcDateRange);
-// EXTERNAL MODULE: ./src/OtcDateYear/OtcDateYear.sass
-var OtcDateYear_OtcDateYear = __webpack_require__("NeM0");
-var OtcDateYear_default = /*#__PURE__*/__webpack_require__.n(OtcDateYear_OtcDateYear);
+/* harmony default export */ var components_OtcDateRange_OtcDateRange = (OtcDateRange_OtcDateRange);
+// EXTERNAL MODULE: ./src/components/OtcDateYear/OtcDateYear.module.sass
+var OtcDateYear_module = __webpack_require__("eENG");
+var OtcDateYear_module_default = /*#__PURE__*/__webpack_require__.n(OtcDateYear_module);
 
-// CONCATENATED MODULE: ./src/OtcDateYear/OtcDateYear.jsx
+// CONCATENATED MODULE: ./src/components/OtcDateYear/OtcDateYear.jsx
 
 
 function OtcDateYear__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9229,8 +9446,9 @@ function OtcDateYear__inherits(subClass, superClass) { if (typeof superClass !==
 
 
 
-var OtcDateYear_OtcDateYear_OtcDateYear = function (_React$Component) {
-  OtcDateYear__inherits(OtcDateYear, _React$Component);
+
+var OtcDateYear_OtcDateYear = function (_Component) {
+  OtcDateYear__inherits(OtcDateYear, _Component);
 
   function OtcDateYear() {
     var _temp, _this, _ret;
@@ -9241,7 +9459,7 @@ var OtcDateYear_OtcDateYear_OtcDateYear = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = OtcDateYear__possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.state = {
+    return _ret = (_temp = (_this = OtcDateYear__possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {
       open: false,
       value: ''
     }, _this.handlerInputOnChange = function (value) {
@@ -9277,8 +9495,8 @@ var OtcDateYear_OtcDateYear_OtcDateYear = function (_React$Component) {
 
     return Object(preact_min["h"])(
       'div',
-      null,
-      Object(preact_min["h"])(src_common_DateField, {
+      { className: Team_module_default.a.rootCalendarBox },
+      Object(preact_min["h"])(common_DateField, {
         onChange: function onChange(v) {
           return _this2.handlerInputOnChange(v);
         },
@@ -9297,8 +9515,8 @@ var OtcDateYear_OtcDateYear_OtcDateYear = function (_React$Component) {
           _this2.setState({ open: false });
         }
       }),
-      open && Object(preact_min["h"])(src_common_Years, {
-        className: 'rootCalendar',
+      open && Object(preact_min["h"])(common_Years, {
+        className: OtcDateYear_module_default.a.rootCalendar,
         onChange: function onChange(y) {
           _this2.setState({ open: false, value: '' + y });
         },
@@ -9309,24 +9527,24 @@ var OtcDateYear_OtcDateYear_OtcDateYear = function (_React$Component) {
   };
 
   return OtcDateYear;
-}(preact_compat_es["default"].Component);
+}(Component$1);
 
-OtcDateYear_OtcDateYear_OtcDateYear.defaultProps = {
+OtcDateYear_OtcDateYear.defaultProps = {
   lg: constants.lg.ru
 };
 
-OtcDateYear_OtcDateYear_OtcDateYear.descriptionProps = {
-  placeholder: 'подсказка отображаемое в поле для ввода, если оно пустое',
+OtcDateYear_OtcDateYear.descriptionProps = {
+  placeholder: 'подсказка отображаемая в поле для ввода, если оно пустое',
   defaultValue: 'значение по умолчанию, отображается если пользователь не менял значение поля',
   onChange: 'функция вызываемая при изменении значения поля'
 };
 
-/* harmony default export */ var src_OtcDateYear_OtcDateYear = (OtcDateYear_OtcDateYear_OtcDateYear);
-// EXTERNAL MODULE: ./src/OtcDateMonth/OtcDateMonth.sass
-var OtcDateMonth_OtcDateMonth = __webpack_require__("C66E");
-var OtcDateMonth_default = /*#__PURE__*/__webpack_require__.n(OtcDateMonth_OtcDateMonth);
+/* harmony default export */ var components_OtcDateYear_OtcDateYear = (OtcDateYear_OtcDateYear);
+// EXTERNAL MODULE: ./src/components/OtcDateMonth/OtcDateMonth.module.sass
+var OtcDateMonth_module = __webpack_require__("KnkI");
+var OtcDateMonth_module_default = /*#__PURE__*/__webpack_require__.n(OtcDateMonth_module);
 
-// CONCATENATED MODULE: ./src/OtcDateMonth/OtcDateMonth.jsx
+// CONCATENATED MODULE: ./src/components/OtcDateMonth/OtcDateMonth.jsx
 
 
 function OtcDateMonth__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9343,8 +9561,9 @@ function OtcDateMonth__inherits(subClass, superClass) { if (typeof superClass !=
 
 
 
-var OtcDateMonth_OtcDateMonth_OtcDateMonth = function (_React$Component) {
-  OtcDateMonth__inherits(OtcDateMonth, _React$Component);
+
+var OtcDateMonth_OtcDateMonth = function (_Component) {
+  OtcDateMonth__inherits(OtcDateMonth, _Component);
 
   function OtcDateMonth() {
     var _temp, _this, _ret;
@@ -9355,7 +9574,7 @@ var OtcDateMonth_OtcDateMonth_OtcDateMonth = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = OtcDateMonth__possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.state = {
+    return _ret = (_temp = (_this = OtcDateMonth__possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {
       open: false,
       value: ''
     }, _this.handlerInputOnChange = function (value) {
@@ -9392,8 +9611,8 @@ var OtcDateMonth_OtcDateMonth_OtcDateMonth = function (_React$Component) {
 
     return Object(preact_min["h"])(
       'div',
-      null,
-      Object(preact_min["h"])(src_common_DateField, {
+      { className: Team_module_default.a.rootCalendarBox },
+      Object(preact_min["h"])(common_DateField, {
         onChange: function onChange(v) {
           return _this2.handlerInputOnChange(v);
         },
@@ -9411,8 +9630,8 @@ var OtcDateMonth_OtcDateMonth_OtcDateMonth = function (_React$Component) {
         ignoreTime: true,
         ignoreDay: true
       }),
-      open && Object(preact_min["h"])(src_common_Months, {
-        className: 'rootCalendar',
+      open && Object(preact_min["h"])(common_Months, {
+        className: OtcDateMonth_module_default.a.rootCalendar,
         onChange: function onChange(y, m) {
           _this2.setState({ open: false, value: y + '-' + m });
         },
@@ -9424,39 +9643,68 @@ var OtcDateMonth_OtcDateMonth_OtcDateMonth = function (_React$Component) {
   };
 
   return OtcDateMonth;
-}(preact_compat_es["default"].Component);
+}(Component$1);
 
-OtcDateMonth_OtcDateMonth_OtcDateMonth.defaultProps = {};
+OtcDateMonth_OtcDateMonth.defaultProps = {};
 
-OtcDateMonth_OtcDateMonth_OtcDateMonth.descriptionProps = {
-  placeholder: 'подсказка отображаемое в поле для ввода, если оно пустое',
+OtcDateMonth_OtcDateMonth.descriptionProps = {
+  placeholder: 'подсказка отображаемая в поле для ввода, если оно пустое',
   defaultValue: 'значение по умолчанию, отображается если пользователь не менял значение поля',
   onChange: 'функция вызываемая при изменении значения поля'
 };
 
-/* harmony default export */ var src_OtcDateMonth_OtcDateMonth = (OtcDateMonth_OtcDateMonth_OtcDateMonth);
-// EXTERNAL MODULE: ./src/UiKit/UiKit.sass
-var UiKit_UiKit = __webpack_require__("gY2g");
-var UiKit_default = /*#__PURE__*/__webpack_require__.n(UiKit_UiKit);
+/* harmony default export */ var components_OtcDateMonth_OtcDateMonth = (OtcDateMonth_OtcDateMonth);
+// EXTERNAL MODULE: ./src/components/UiKit/UiKit.module.sass
+var UiKit_module = __webpack_require__("9ofM");
+var UiKit_module_default = /*#__PURE__*/__webpack_require__.n(UiKit_module);
 
-// CONCATENATED MODULE: ./src/UiKit/UiKit.jsx
-var UiKit__extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
+// CONCATENATED MODULE: ./src/components/UiKit/Scroll.jsx
 
 
-function UiKit__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function Scroll__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function UiKit__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function Scroll__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function UiKit__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function Scroll__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 
 
 
 
 
+var Scroll_Scroll = function (_Component) {
+  Scroll__inherits(Scroll, _Component);
+
+  function Scroll() {
+    Scroll__classCallCheck(this, Scroll);
+
+    return Scroll__possibleConstructorReturn(this, _Component.apply(this, arguments));
+  }
+
+  Scroll.prototype.render = function render() {
+    var children = this.props.children;
 
 
+    return Object(preact_min["h"])(
+      'div',
+      { className: classnames_default()(UiKit_module_default.a.scrollBox, 'otc-date-close-if-scroll-this') },
+      Object(preact_min["h"])(
+        'div',
+        { className: UiKit_module_default.a.scrollContent },
+        Object(preact_min["h"])(
+          'div',
+          { className: UiKit_module_default.a.scrollContentBox },
+          children
+        )
+      )
+    );
+  };
+
+  return Scroll;
+}(Component$1);
+
+/* harmony default export */ var UiKit_Scroll = (Scroll_Scroll);
+// CONCATENATED MODULE: ./src/components/UiKit/helper.js
 
 
 function getPropTypeName(type) {
@@ -9471,26 +9719,28 @@ function getPropTypeName(type) {
       return 'bool';
   }
 }
+// CONCATENATED MODULE: ./src/components/UiKit/Box.jsx
 
-var UiKit__ref = Object(preact_min["h"])(
-  'div',
-  { className: 'uikitTitle' },
-  '\u041F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u044B:'
-);
 
-var UiKit__ref2 = Object(preact_min["h"])(
-  'div',
-  { className: 'uikitTitle' },
-  '\u0414\u0435\u043C\u043E:'
-);
+function Box__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var UiKit_Box = function (_Component) {
-  UiKit__inherits(Box, _Component);
+function Box__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function Box__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+var Box_Box = function (_Component) {
+  Box__inherits(Box, _Component);
 
   function Box() {
-    UiKit__classCallCheck(this, Box);
+    Box__classCallCheck(this, Box);
 
-    return UiKit__possibleConstructorReturn(this, _Component.apply(this, arguments));
+    return Box__possibleConstructorReturn(this, _Component.apply(this, arguments));
   }
 
   Box.prototype.render = function render() {
@@ -9525,29 +9775,29 @@ var UiKit_Box = function (_Component) {
 
         lines.push(Object(preact_min["h"])(
           'div',
-          { className: 'boxParams' },
+          { className: UiKit_module_default.a.boxParams },
           Object(preact_min["h"])(
             'div',
-            { className: 'flex5' },
+            { className: UiKit_module_default.a.flex5 },
             Object(preact_min["h"])(
               'div',
-              { className: 'boxParamsPropName' },
+              { className: UiKit_module_default.a.boxParamsPropName },
               propName
             ),
             Object(preact_min["h"])(
               'div',
-              { className: 'boxParamsPropType' },
+              { className: UiKit_module_default.a.boxParamsPropType },
               typeText
             ),
             Object(preact_min["h"])(
               'div',
-              { className: 'boxParamsPropDefValue' },
+              { className: UiKit_module_default.a.boxParamsPropDefValue },
               defText
             )
           ),
           Object(preact_min["h"])(
             'div',
-            { className: 'boxParamsPropDescription' },
+            { className: UiKit_module_default.a.boxParamsPropDescription },
             descText
           )
         ));
@@ -9564,41 +9814,70 @@ var UiKit_Box = function (_Component) {
 
     return Object(preact_min["h"])(
       'div',
-      { className: 'uikitBox' },
+      { className: UiKit_module_default.a.uikitBox },
       Object(preact_min["h"])(
         'div',
-        { className: 'uikitTitle' },
+        { className: UiKit_module_default.a.uikitTitle },
         name,
         ':'
       ),
       Object(preact_min["h"])(
         'div',
-        { className: 'uikitLabel' },
+        { className: UiKit_module_default.a.uikitLabel },
         label
       ),
-      UiKit__ref,
       Object(preact_min["h"])(
         'div',
-        { className: 'uikitParams' },
+        { className: UiKit_module_default.a.uikitTitle },
+        '\u041F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u044B:'
+      ),
+      Object(preact_min["h"])(
+        'div',
+        { className: UiKit_module_default.a.uikitParams },
         renderParams(params)
       ),
-      UiKit__ref2,
       Object(preact_min["h"])(
         'div',
-        { className: 'uikitDemo' },
+        { className: UiKit_module_default.a.uikitTitle },
+        '\u0414\u0435\u043C\u043E:'
+      ),
+      Object(preact_min["h"])(
+        'div',
+        { className: UiKit_module_default.a.uikitDemo },
         children
       )
     );
   };
 
   return Box;
-}(preact_compat_es["Component"]);
+}(Component$1);
 
-var UiKit_UiKit_UiKit = function (_Component2) {
-  UiKit__inherits(UiKit, _Component2);
+/* harmony default export */ var UiKit_Box = (Box_Box);
+// CONCATENATED MODULE: ./src/components/UiKit/UiKit.jsx
+var UiKit__extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+
+
+function UiKit__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function UiKit__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function UiKit__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+
+
+
+var UiKit_UiKit = function (_Component) {
+  UiKit__inherits(UiKit, _Component);
 
   function UiKit() {
-    var _temp, _this2, _ret;
+    var _temp, _this, _ret;
 
     UiKit__classCallCheck(this, UiKit);
 
@@ -9606,18 +9885,18 @@ var UiKit_UiKit_UiKit = function (_Component2) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this2 = UiKit__possibleConstructorReturn(this, _Component2.call.apply(_Component2, [this].concat(args))), _this2), _this2.state = {
+    return _ret = (_temp = (_this = UiKit__possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {
       otcDate: {},
       otcDateTime: {},
       otcDateRange: {},
       otcDateTimeRange: {},
       otcDateMonth: {},
       otcDateYear: {}
-    }, _temp), UiKit__possibleConstructorReturn(_this2, _ret);
+    }, _temp), UiKit__possibleConstructorReturn(_this, _ret);
   }
 
   UiKit.prototype.render = function render() {
-    var _this3 = this;
+    var _this2 = this;
 
     var _state = this.state,
         otcDateTime = _state.otcDateTime,
@@ -9630,97 +9909,125 @@ var UiKit_UiKit_UiKit = function (_Component2) {
 
     return Object(preact_min["h"])(
       'div',
-      { className: 'uikit' },
+      { className: UiKit_module_default.a.uikit },
+      Object(preact_min["h"])(
+        UiKit_Scroll,
+        null,
+        Object(preact_min["h"])(
+          'div',
+          { style: { display: 'flex' } },
+          Object(preact_min["h"])(components_OtcDate_OtcDate, {
+            style: { width: '100%' },
+            onChange: function onChange(v) {
+              return _this2.setState(UiKit__extends({}, otcDate, { value1: v }));
+            },
+            defaultValue: '2018-01-01',
+            placeholder: otcDate.placeholder
+          }),
+          Object(preact_min["h"])(components_OtcDate_OtcDate, {
+            style: { width: '100%' },
+            onChange: function onChange(v) {
+              return _this2.setState(UiKit__extends({}, otcDate, { value1: v }));
+            },
+            defaultValue: '2018-01-01',
+            placeholder: otcDate.placeholder
+          })
+        )
+      ),
       Object(preact_min["h"])(
         UiKit_Box,
         {
           label: '\u0412\u044B\u0431\u0440\u0430\u0442\u044C \u043E\u0434\u043D\u0443 \u0434\u0430\u0442\u0443 \u0431\u0435\u0437 \u0432\u0440\u0435\u043C\u0435\u043D\u0438 (DD.MM.YYYY), \u0442.\u0435. \u0441 \u0442\u043E\u0447\u043D\u043E\u0441\u0442\u044C\u044E \u0434\u043E \u0434\u043D\u044F',
-          params: src_OtcDate_OtcDate,
+          params: components_OtcDate_OtcDate,
           name: 'OtcDate'
         },
-        Object(preact_min["h"])(src_OtcDate_OtcDate, { showTime: false, onChange: function onChange(v) {
-            return _this3.setState(UiKit__extends({}, otcDate, { v: v }));
-          }, defaultValue: otcDate.value, placeholder: otcDate.placeholder })
+        Object(preact_min["h"])(components_OtcDate_OtcDate, {
+          onChange: function onChange(v) {
+            return _this2.setState(UiKit__extends({}, otcDate, { value1: v }));
+          },
+          defaultValue: '2018-01-01',
+          placeholder: otcDate.placeholder
+        })
       ),
       Object(preact_min["h"])(
         UiKit_Box,
         {
           label: '\u0412\u044B\u0431\u0440\u0430\u0442\u044C \u043E\u0434\u043D\u0443 \u0434\u0430\u0442\u0443 \u0441\u043E \u0432\u0440\u0435\u043C\u0435\u043D\u0435\u043C (DD.MM.YYYY hh24:mi), \u0442.\u0435. \u0441 \u0442\u043E\u0447\u043D\u043E\u0441\u0442\u044C\u044E \u0434\u043E \u043C\u0438\u043D\u0443\u0442\u044B.',
-          params: src_OtcDate_OtcDate,
+          params: components_OtcDate_OtcDate,
           name: 'OtcDate'
         },
-        Object(preact_min["h"])(src_OtcDate_OtcDate, { showTime: true, onChange: function onChange(v) {
-            return _this3.setState(UiKit__extends({}, otcDateTime, { v: v }));
+        Object(preact_min["h"])(components_OtcDate_OtcDate, { showTime: true, onChange: function onChange(v) {
+            return _this2.setState(UiKit__extends({}, otcDateTime, { v: v }));
           }, defaultValue: otcDateTime.value, placeholder: otcDateTime.placeholder })
       ),
       Object(preact_min["h"])(
         UiKit_Box,
         {
           label: '\u0412\u044B\u0431\u0440\u0430\u0442\u044C \u043E\u0434\u043D\u0443 \u0434\u0430\u0442\u0443 \u0441\u043E \u0432\u0440\u0435\u043C\u0435\u043D\u0435\u043C (DD.MM.YYYY hh24:mi), \u0442.\u0435. \u0441 \u0442\u043E\u0447\u043D\u043E\u0441\u0442\u044C\u044E \u0434\u043E \u043C\u0438\u043D\u0443\u0442\u044B. (\u0432\u0440\u0435\u043C\u044F \u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E \u0434\u043B\u044F \u0437\u0430\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u044F)',
-          params: src_OtcDate_OtcDate,
+          params: components_OtcDate_OtcDate,
           name: 'OtcDate'
         },
-        Object(preact_min["h"])(src_OtcDate_OtcDate, { showTime: true, timeIsRequired: true, onChange: function onChange(v) {
-            return _this3.setState(UiKit__extends({}, otcDateTime, { v: v }));
+        Object(preact_min["h"])(components_OtcDate_OtcDate, { showTime: true, timeIsRequired: true, onChange: function onChange(v) {
+            return _this2.setState(UiKit__extends({}, otcDateTime, { v: v }));
           }, defaultValue: otcDateTime.value, placeholder: otcDateTime.placeholder })
       ),
       Object(preact_min["h"])(
         UiKit_Box,
         {
           label: '\u0412\u044B\u0431\u0440\u0430\u0442\u044C \u0434\u0438\u0430\u043F\u0430\u0437\u043E\u043D \u0434\u0430\u0442: \u0421 \u0438 \u041F\u041E',
-          params: src_OtcDateRange_OtcDateRange,
+          params: components_OtcDateRange_OtcDateRange,
           name: 'OtcDateRange'
         },
-        Object(preact_min["h"])(src_OtcDateRange_OtcDateRange, UiKit__extends({ showTime: false, onChange: function onChange(v) {
-            return _this3.setState(UiKit__extends({}, otcDateRange, { v: v }));
+        Object(preact_min["h"])(components_OtcDateRange_OtcDateRange, UiKit__extends({ showTime: false, onChange: function onChange(v) {
+            return _this2.setState(UiKit__extends({}, otcDateRange, { v: v }));
           } }, otcDateRange))
       ),
       Object(preact_min["h"])(
         UiKit_Box,
         {
           label: '\u0412\u044B\u0431\u0440\u0430\u0442\u044C \u0434\u0438\u0430\u043F\u0430\u0437\u043E\u043D \u0434\u0430\u0442 \u0441\u043E \u0432\u0440\u0435\u043C\u0435\u043D\u0435\u043C: \u0421 \u0438 \u041F\u041E',
-          params: src_OtcDateRange_OtcDateRange,
+          params: components_OtcDateRange_OtcDateRange,
           name: 'OtcDateRange'
         },
-        Object(preact_min["h"])(src_OtcDateRange_OtcDateRange, UiKit__extends({ showTime: true, onChange: function onChange(v) {
-            return _this3.setState(UiKit__extends({}, otcDateTimeRange, { v: v }));
+        Object(preact_min["h"])(components_OtcDateRange_OtcDateRange, UiKit__extends({ showTime: true, onChange: function onChange(v) {
+            return _this2.setState(UiKit__extends({}, otcDateTimeRange, { v: v }));
           } }, otcDateTimeRange))
       ),
       Object(preact_min["h"])(
         UiKit_Box,
         {
           label: '\u0412\u044B\u0431\u0440\u0430\u0442\u044C \u043C\u0435\u0441\u044F\u0446 (\u0434\u043B\u044F \u041F\u043B\u0430\u043D\u0430 \u0417\u0430\u043A\u0443\u043F\u043E\u043A). (MM.YYYY \u0438\u043B\u0438 MMM YYYY)',
-          params: src_OtcDateMonth_OtcDateMonth,
+          params: components_OtcDateMonth_OtcDateMonth,
           name: 'OtcDateMonth'
         },
-        Object(preact_min["h"])(src_OtcDateMonth_OtcDateMonth, UiKit__extends({ onChange: function onChange(v) {
-            return _this3.setState(UiKit__extends({}, otcDateMonth, { v: v }));
+        Object(preact_min["h"])(components_OtcDateMonth_OtcDateMonth, UiKit__extends({ onChange: function onChange(v) {
+            return _this2.setState(UiKit__extends({}, otcDateMonth, { v: v }));
           } }, otcDateMonth))
       ),
       Object(preact_min["h"])(
         UiKit_Box,
         {
           label: '\u0412\u044B\u0431\u0440\u0430\u0442\u044C \u0433\u043E\u0434 (YYYY)',
-          params: src_OtcDateYear_OtcDateYear,
+          params: components_OtcDateYear_OtcDateYear,
           name: 'OtcDateYear'
         },
-        Object(preact_min["h"])(src_OtcDateYear_OtcDateYear, UiKit__extends({ onChange: function onChange(v) {
-            return _this3.setState(UiKit__extends({}, otcDateYear, { v: v }));
+        Object(preact_min["h"])(components_OtcDateYear_OtcDateYear, UiKit__extends({ onChange: function onChange(v) {
+            return _this2.setState(UiKit__extends({}, otcDateYear, { v: v }));
           } }, otcDateYear))
       )
     );
   };
 
   return UiKit;
-}(preact_compat_es["Component"]);
+}(Component$1);
 
-/* harmony default export */ var src_UiKit_UiKit = (UiKit_UiKit_UiKit);
-// CONCATENATED MODULE: ./src/UiKit/index.js
+/* harmony default export */ var components_UiKit_UiKit = (UiKit_UiKit);
+// CONCATENATED MODULE: ./src/components/UiKit/index.js
 
 
 // CONCATENATED MODULE: ./src/index.js
 
-/* harmony default export */ var src = (src_UiKit_UiKit);
+/* harmony default export */ var src = (components_UiKit_UiKit);
 // CONCATENATED MODULE: ./index.js
 /* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "default", function() { return src; });
 
@@ -9837,6 +10144,20 @@ if (false) {
   // http://fb.me/prop-types-in-prod
   module.exports = __webpack_require__("Q4WQ")();
 }
+
+/***/ }),
+
+/***/ "KnkI":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "LN+u":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -10006,13 +10327,6 @@ if (false) {
 
 /***/ }),
 
-/***/ "Lpqa":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "N3vo":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10074,13 +10388,6 @@ if (false) {
 
     return cv;
 });
-
-/***/ }),
-
-/***/ "NAT+":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -10153,13 +10460,6 @@ if (false) {
 
     return eo;
 });
-
-/***/ }),
-
-/***/ "NeM0":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -10349,6 +10649,13 @@ if (false) {
 
     return he;
 });
+
+/***/ }),
+
+/***/ "O39C":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "36dcdd38e21f5cf085976851b03e263c.svg";
 
 /***/ }),
 
@@ -15188,357 +15495,6 @@ if (false) {
 
 /***/ }),
 
-/***/ "PQ84":
-/***/ (function(module, exports, __webpack_require__) {
-
-!function (e, t) {
-   true ? module.exports = t(__webpack_require__("AX2D")) : "function" == typeof define && define.amd ? define(["react"], t) : "object" == typeof exports ? exports.reactTextMask = t(require("react")) : e.reactTextMask = t(e.React);
-}(this, function (e) {
-  return function (e) {
-    function t(n) {
-      if (r[n]) return r[n].exports;var o = r[n] = { exports: {}, id: n, loaded: !1 };return e[n].call(o.exports, o, o.exports, t), o.loaded = !0, o.exports;
-    }var r = {};return t.m = e, t.c = r, t.p = "", t(0);
-  }([function (e, t, r) {
-    "use strict";
-    function n(e) {
-      return e && e.__esModule ? e : { default: e };
-    }function o(e, t) {
-      var r = {};for (var n in e) {
-        t.indexOf(n) >= 0 || Object.prototype.hasOwnProperty.call(e, n) && (r[n] = e[n]);
-      }return r;
-    }function i(e, t) {
-      if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
-    }function a(e, t) {
-      if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return !t || "object" != typeof t && "function" != typeof t ? e : t;
-    }function u(e, t) {
-      if ("function" != typeof t && null !== t) throw new TypeError("Super expression must either be null or a function, not " + typeof t);e.prototype = Object.create(t && t.prototype, { constructor: { value: e, enumerable: !1, writable: !0, configurable: !0 } }), t && (Object.setPrototypeOf ? Object.setPrototypeOf(e, t) : e.__proto__ = t);
-    }Object.defineProperty(t, "__esModule", { value: !0 }), t.conformToMask = void 0;var l = Object.assign || function (e) {
-      for (var t = 1; t < arguments.length; t++) {
-        var r = arguments[t];for (var n in r) {
-          Object.prototype.hasOwnProperty.call(r, n) && (e[n] = r[n]);
-        }
-      }return e;
-    },
-        s = function () {
-      function e(e, t) {
-        for (var r = 0; r < t.length; r++) {
-          var n = t[r];n.enumerable = n.enumerable || !1, n.configurable = !0, "value" in n && (n.writable = !0), Object.defineProperty(e, n.key, n);
-        }
-      }return function (t, r, n) {
-        return r && e(t.prototype, r), n && e(t, n), t;
-      };
-    }(),
-        f = r(2);Object.defineProperty(t, "conformToMask", { enumerable: !0, get: function get() {
-        return n(f).default;
-      } });var c = r(11),
-        p = n(c),
-        d = r(9),
-        h = n(d),
-        v = r(5),
-        y = n(v),
-        m = function (e) {
-      function t() {
-        var e;i(this, t);for (var r = arguments.length, n = Array(r), o = 0; o < r; o++) {
-          n[o] = arguments[o];
-        }var u = a(this, (e = t.__proto__ || Object.getPrototypeOf(t)).call.apply(e, [this].concat(n)));return u.onBlur = u.onBlur.bind(u), u.onChange = u.onChange.bind(u), u;
-      }return u(t, e), s(t, [{ key: "initTextMask", value: function value() {
-          var e = this.props,
-              t = this.props.value;this.textMaskInputElement = (0, y.default)(l({ inputElement: this.inputElement }, e)), this.textMaskInputElement.update(t);
-        } }, { key: "componentDidMount", value: function value() {
-          this.initTextMask();
-        } }, { key: "render", value: function e() {
-          var t = this,
-              r = this.props,
-              e = r.render,
-              n = o(r, ["render"]);delete n.mask, delete n.guide, delete n.pipe, delete n.placeholderChar, delete n.keepCharPositions, delete n.value, delete n.onBlur, delete n.onChange, delete n.showMask;var i = function i(e) {
-            return t.inputElement = e;
-          };return e(i, l({ onBlur: this.onBlur, onChange: this.onChange, defaultValue: this.props.value }, n));
-        } }, { key: "onChange", value: function value(e) {
-          this.textMaskInputElement.update(), "function" == typeof this.props.onChange && this.props.onChange(e);
-        } }, { key: "onBlur", value: function value(e) {
-          "function" == typeof this.props.onBlur && this.props.onBlur(e);
-        } }]), t;
-    }(p.default.PureComponent);t.default = m, m.propTypes = { mask: h.default.oneOfType([h.default.array, h.default.func, h.default.bool, h.default.shape({ mask: h.default.oneOfType([h.default.array, h.default.func]), pipe: h.default.func })]).isRequired, guide: h.default.bool, value: h.default.oneOfType([h.default.string, h.default.number]), pipe: h.default.func, placeholderChar: h.default.string, keepCharPositions: h.default.bool, showMask: h.default.bool }, m.defaultProps = { render: function render(e, t) {
-        return p.default.createElement("input", l({ ref: e }, t));
-      } };
-  }, function (e, t) {
-    "use strict";
-    Object.defineProperty(t, "__esModule", { value: !0 }), t.placeholderChar = "_", t.strFunction = "function";
-  }, function (e, t, r) {
-    "use strict";
-    function n() {
-      var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : l,
-          t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : u,
-          r = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {};if (!(0, i.isArray)(t)) {
-        if (("undefined" == typeof t ? "undefined" : o(t)) !== a.strFunction) throw new Error("Text-mask:conformToMask; The mask property must be an array.");t = t(e, r), t = (0, i.processCaretTraps)(t).maskWithoutCaretTraps;
-      }var n = r.guide,
-          s = void 0 === n || n,
-          f = r.previousConformedValue,
-          c = void 0 === f ? l : f,
-          p = r.placeholderChar,
-          d = void 0 === p ? a.placeholderChar : p,
-          h = r.placeholder,
-          v = void 0 === h ? (0, i.convertMaskToPlaceholder)(t, d) : h,
-          y = r.currentCaretPosition,
-          m = r.keepCharPositions,
-          b = s === !1 && void 0 !== c,
-          g = e.length,
-          C = c.length,
-          k = v.length,
-          O = t.length,
-          P = g - C,
-          T = P > 0,
-          x = y + (T ? -P : 0),
-          w = x + Math.abs(P);if (m === !0 && !T) {
-        for (var _ = l, M = x; M < w; M++) {
-          v[M] === d && (_ += d);
-        }e = e.slice(0, x) + _ + e.slice(x, g);
-      }for (var S = e.split(l).map(function (e, t) {
-        return { char: e, isNew: t >= x && t < w };
-      }), j = g - 1; j >= 0; j--) {
-        var E = S[j].char;if (E !== d) {
-          var R = j >= x && C === O;E === v[R ? j - P : j] && S.splice(j, 1);
-        }
-      }var V = l,
-          A = !1;e: for (var N = 0; N < k; N++) {
-        var B = v[N];if (B === d) {
-          if (S.length > 0) for (; S.length > 0;) {
-            var I = S.shift(),
-                F = I.char,
-                q = I.isNew;if (F === d && b !== !0) {
-              V += d;continue e;
-            }if (t[N].test(F)) {
-              if (m === !0 && q !== !1 && c !== l && s !== !1 && T) {
-                for (var L = S.length, W = null, D = 0; D < L; D++) {
-                  var J = S[D];if (J.char !== d && J.isNew === !1) break;if (J.char === d) {
-                    W = D;break;
-                  }
-                }null !== W ? (V += F, S.splice(W, 1)) : N--;
-              } else V += F;continue e;
-            }A = !0;
-          }b === !1 && (V += v.substr(N, k));break;
-        }V += B;
-      }if (b && T === !1) {
-        for (var U = null, H = 0; H < V.length; H++) {
-          v[H] === d && (U = H);
-        }V = null !== U ? V.substr(0, U + 1) : l;
-      }return { conformedValue: V, meta: { someCharsRejected: A } };
-    }Object.defineProperty(t, "__esModule", { value: !0 });var o = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (e) {
-      return typeof e;
-    } : function (e) {
-      return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : typeof e;
-    };t.default = n;var i = r(3),
-        a = r(1),
-        u = [],
-        l = "";
-  }, function (e, t, r) {
-    "use strict";
-    function n() {
-      var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : s,
-          t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : l.placeholderChar;if (!o(e)) throw new Error("Text-mask:convertMaskToPlaceholder; The mask property must be an array.");if (e.indexOf(t) !== -1) throw new Error("Placeholder character must not be used as part of the mask. Please specify a character that is not present in your mask as your placeholder character.\n\n" + ("The placeholder character that was received is: " + JSON.stringify(t) + "\n\n") + ("The mask that was received is: " + JSON.stringify(e)));return e.map(function (e) {
-        return e instanceof RegExp ? t : e;
-      }).join("");
-    }function o(e) {
-      return Array.isArray && Array.isArray(e) || e instanceof Array;
-    }function i(e) {
-      return "string" == typeof e || e instanceof String;
-    }function a(e) {
-      return "number" == typeof e && void 0 === e.length && !isNaN(e);
-    }function u(e) {
-      for (var t = [], r = void 0; r = e.indexOf(f), r !== -1;) {
-        t.push(r), e.splice(r, 1);
-      }return { maskWithoutCaretTraps: e, indexes: t };
-    }Object.defineProperty(t, "__esModule", { value: !0 }), t.convertMaskToPlaceholder = n, t.isArray = o, t.isString = i, t.isNumber = a, t.processCaretTraps = u;var l = r(1),
-        s = [],
-        f = "[]";
-  }, function (e, t) {
-    "use strict";
-    function r(e) {
-      var t = e.previousConformedValue,
-          r = void 0 === t ? o : t,
-          i = e.previousPlaceholder,
-          a = void 0 === i ? o : i,
-          u = e.currentCaretPosition,
-          l = void 0 === u ? 0 : u,
-          s = e.conformedValue,
-          f = e.rawValue,
-          c = e.placeholderChar,
-          p = e.placeholder,
-          d = e.indexesOfPipedChars,
-          h = void 0 === d ? n : d,
-          v = e.caretTrapIndexes,
-          y = void 0 === v ? n : v;if (0 === l || !f.length) return 0;var m = f.length,
-          b = r.length,
-          g = p.length,
-          C = s.length,
-          k = m - b,
-          O = k > 0,
-          P = 0 === b,
-          T = k > 1 && !O && !P;if (T) return l;var x = O && (r === s || s === p),
-          w = 0,
-          _ = void 0,
-          M = void 0;if (x) w = l - k;else {
-        var S = s.toLowerCase(),
-            j = f.toLowerCase(),
-            E = j.substr(0, l).split(o),
-            R = E.filter(function (e) {
-          return S.indexOf(e) !== -1;
-        });M = R[R.length - 1];var V = a.substr(0, R.length).split(o).filter(function (e) {
-          return e !== c;
-        }).length,
-            A = p.substr(0, R.length).split(o).filter(function (e) {
-          return e !== c;
-        }).length,
-            N = A !== V,
-            B = void 0 !== a[R.length - 1] && void 0 !== p[R.length - 2] && a[R.length - 1] !== c && a[R.length - 1] !== p[R.length - 1] && a[R.length - 1] === p[R.length - 2];!O && (N || B) && V > 0 && p.indexOf(M) > -1 && void 0 !== f[l] && (_ = !0, M = f[l]);for (var I = h.map(function (e) {
-          return S[e];
-        }), F = I.filter(function (e) {
-          return e === M;
-        }).length, q = R.filter(function (e) {
-          return e === M;
-        }).length, L = p.substr(0, p.indexOf(c)).split(o).filter(function (e, t) {
-          return e === M && f[t] !== e;
-        }).length, W = L + q + F + (_ ? 1 : 0), D = 0, J = 0; J < C; J++) {
-          var U = S[J];if (w = J + 1, U === M && D++, D >= W) break;
-        }
-      }if (O) {
-        for (var H = w, Y = w; Y <= g; Y++) {
-          if (p[Y] === c && (H = Y), p[Y] === c || y.indexOf(Y) !== -1 || Y === g) return H;
-        }
-      } else if (_) {
-        for (var z = w - 1; z >= 0; z--) {
-          if (s[z] === M || y.indexOf(z) !== -1 || 0 === z) return z;
-        }
-      } else for (var G = w; G >= 0; G--) {
-        if (p[G - 1] === c || y.indexOf(G) !== -1 || 0 === G) return G;
-      }
-    }Object.defineProperty(t, "__esModule", { value: !0 }), t.default = r;var n = [],
-        o = "";
-  }, function (e, t, r) {
-    "use strict";
-    function n(e) {
-      return e && e.__esModule ? e : { default: e };
-    }function o(e) {
-      var t = { previousConformedValue: void 0, previousPlaceholder: void 0 };return { state: t, update: function update(r) {
-          var n = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : e,
-              o = n.inputElement,
-              s = n.mask,
-              c = n.guide,
-              y = n.pipe,
-              b = n.placeholderChar,
-              g = void 0 === b ? h.placeholderChar : b,
-              C = n.keepCharPositions,
-              k = void 0 !== C && C,
-              O = n.showMask,
-              P = void 0 !== O && O;if ("undefined" == typeof r && (r = o.value), r !== t.previousConformedValue) {
-            ("undefined" == typeof s ? "undefined" : l(s)) === m && void 0 !== s.pipe && void 0 !== s.mask && (y = s.pipe, s = s.mask);var T = void 0,
-                x = void 0;if (s instanceof Array && (T = (0, d.convertMaskToPlaceholder)(s, g)), s !== !1) {
-              var w = a(r),
-                  _ = o.selectionEnd,
-                  M = t.previousConformedValue,
-                  S = t.previousPlaceholder,
-                  j = void 0;if (("undefined" == typeof s ? "undefined" : l(s)) === h.strFunction) {
-                if (x = s(w, { currentCaretPosition: _, previousConformedValue: M, placeholderChar: g }), x === !1) return;var E = (0, d.processCaretTraps)(x),
-                    R = E.maskWithoutCaretTraps,
-                    V = E.indexes;x = R, j = V, T = (0, d.convertMaskToPlaceholder)(x, g);
-              } else x = s;var A = { previousConformedValue: M, guide: c, placeholderChar: g, pipe: y, placeholder: T, currentCaretPosition: _, keepCharPositions: k },
-                  N = (0, p.default)(w, x, A),
-                  B = N.conformedValue,
-                  I = ("undefined" == typeof y ? "undefined" : l(y)) === h.strFunction,
-                  F = {};I && (F = y(B, u({ rawValue: w }, A)), F === !1 ? F = { value: M, rejected: !0 } : (0, d.isString)(F) && (F = { value: F }));var q = I ? F.value : B,
-                  L = (0, f.default)({ previousConformedValue: M, previousPlaceholder: S, conformedValue: q, placeholder: T, rawValue: w, currentCaretPosition: _, placeholderChar: g, indexesOfPipedChars: F.indexesOfPipedChars, caretTrapIndexes: j }),
-                  W = q === T && 0 === L,
-                  D = P ? T : v,
-                  J = W ? D : q;t.previousConformedValue = J, t.previousPlaceholder = T, o.value !== J && (o.value = J, i(o, L));
-            }
-          }
-        } };
-    }function i(e, t) {
-      document.activeElement === e && (b ? g(function () {
-        return e.setSelectionRange(t, t, y);
-      }, 0) : e.setSelectionRange(t, t, y));
-    }function a(e) {
-      if ((0, d.isString)(e)) return e;if ((0, d.isNumber)(e)) return String(e);if (void 0 === e || null === e) return v;throw new Error("The 'value' provided to Text Mask needs to be a string or a number. The value received was:\n\n " + JSON.stringify(e));
-    }Object.defineProperty(t, "__esModule", { value: !0 });var u = Object.assign || function (e) {
-      for (var t = 1; t < arguments.length; t++) {
-        var r = arguments[t];for (var n in r) {
-          Object.prototype.hasOwnProperty.call(r, n) && (e[n] = r[n]);
-        }
-      }return e;
-    },
-        l = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (e) {
-      return typeof e;
-    } : function (e) {
-      return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : typeof e;
-    };t.default = o;var s = r(4),
-        f = n(s),
-        c = r(2),
-        p = n(c),
-        d = r(3),
-        h = r(1),
-        v = "",
-        y = "none",
-        m = "object",
-        b = "undefined" != typeof navigator && /Android/i.test(navigator.userAgent),
-        g = "undefined" != typeof requestAnimationFrame ? requestAnimationFrame : setTimeout;
-  }, function (e, t) {
-    "use strict";
-    function r(e) {
-      return function () {
-        return e;
-      };
-    }var n = function n() {};n.thatReturns = r, n.thatReturnsFalse = r(!1), n.thatReturnsTrue = r(!0), n.thatReturnsNull = r(null), n.thatReturnsThis = function () {
-      return this;
-    }, n.thatReturnsArgument = function (e) {
-      return e;
-    }, e.exports = n;
-  }, function (e, t, r) {
-    "use strict";
-    function n(e, t, r, n, i, a, u, l) {
-      if (o(t), !e) {
-        var s;if (void 0 === t) s = new Error("Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.");else {
-          var f = [r, n, i, a, u, l],
-              c = 0;s = new Error(t.replace(/%s/g, function () {
-            return f[c++];
-          })), s.name = "Invariant Violation";
-        }throw s.framesToPop = 1, s;
-      }
-    }var o = function o(e) {};e.exports = n;
-  }, function (e, t, r) {
-    "use strict";
-    var n = r(6),
-        o = r(7),
-        i = r(10);e.exports = function () {
-      function e(e, t, r, n, a, u) {
-        u !== i && o(!1, "Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");
-      }function t() {
-        return e;
-      }e.isRequired = e;var r = { array: e, bool: e, func: e, number: e, object: e, string: e, symbol: e, any: e, arrayOf: t, element: e, instanceOf: t, node: e, objectOf: t, oneOf: t, oneOfType: t, shape: t, exact: t };return r.checkPropTypes = n, r.PropTypes = r, r;
-    };
-  }, function (e, t, r) {
-    "use strict";
-    "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (e) {
-      return typeof e;
-    } : function (e) {
-      return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : typeof e;
-    }, e.exports = r(8)();
-  }, function (e, t) {
-    "use strict";
-    var r = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";e.exports = r;
-  }, function (t, r) {
-    t.exports = e;
-  }]);
-});
-
-/***/ }),
-
-/***/ "PsOw":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "Q4WQ":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15661,13 +15617,6 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ "R5fR":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "RnJI":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15757,13 +15706,6 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ "SJyb":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "Sjoy":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15826,6 +15768,20 @@ module.exports = function () {
 
     return enAu;
 });
+
+/***/ }),
+
+/***/ "TS86":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "Tl1n":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "b3c06d55a38f7ab1b2cd3b8b351c0e87.svg";
 
 /***/ }),
 
@@ -16000,7 +15956,7 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ "USf2":
+/***/ "Uw5f":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -16310,6 +16266,13 @@ module.exports = function () {
 
 /***/ }),
 
+/***/ "VSaL":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "Vz2w":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16445,13 +16408,6 @@ module.exports = function (module) {
 	}
 	return module;
 };
-
-/***/ }),
-
-/***/ "WlHs":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -16595,6 +16551,13 @@ module.exports = function (module) {
 
 /***/ }),
 
+/***/ "XsJY":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "XzD+":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16660,6 +16623,13 @@ module.exports = function (module) {
 
     return th;
 });
+
+/***/ }),
+
+/***/ "Y05x":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -16865,13 +16835,6 @@ module.exports = function (module) {
 
 /***/ }),
 
-/***/ "ZPhz":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "3e59658cfd660d2b5356895e27588b81.svg";
-
-/***/ }),
-
 /***/ "ZUyn":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16976,10 +16939,10 @@ module.exports = __webpack_require__.p + "3e59658cfd660d2b5356895e27588b81.svg";
 
 /***/ }),
 
-/***/ "ZYX9":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "Zk8y":
+/***/ (function(module, exports) {
 
-module.exports = __webpack_require__.p + "d75e38094c43914238309cd269ed58c3.svg";
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -17318,6 +17281,13 @@ module.exports = __webpack_require__.p + "d75e38094c43914238309cd269ed58c3.svg";
 
 /***/ }),
 
+/***/ "bLS2":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "8f61b749b570a49b302f593eefeb8bde.svg";
+
+/***/ }),
+
 /***/ "bXQP":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17390,6 +17360,20 @@ module.exports = __webpack_require__.p + "d75e38094c43914238309cd269ed58c3.svg";
 
     return frCa;
 });
+
+/***/ }),
+
+/***/ "ba5V":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "bkjv":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -17770,6 +17754,13 @@ module.exports = __webpack_require__.p + "d75e38094c43914238309cd269ed58c3.svg";
 
 /***/ }),
 
+/***/ "eENG":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "eHwN":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18136,13 +18127,6 @@ module.exports = __webpack_require__.p + "d75e38094c43914238309cd269ed58c3.svg";
 
 /***/ }),
 
-/***/ "g81F":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "gEQe":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18335,13 +18319,6 @@ module.exports = __webpack_require__.p + "d75e38094c43914238309cd269ed58c3.svg";
 
 /***/ }),
 
-/***/ "gIi0":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "453b0c0bfae8e6d4f3c5f11b0fd86adc.svg";
-
-/***/ }),
-
 /***/ "gUgh":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18404,13 +18381,6 @@ module.exports = __webpack_require__.p + "453b0c0bfae8e6d4f3c5f11b0fd86adc.svg";
 
     return tet;
 });
-
-/***/ }),
-
-/***/ "gY2g":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -18554,6 +18524,29 @@ module.exports = ReactPropTypesSecret;
 
     return bm;
 });
+
+/***/ }),
+
+/***/ "i81k":
+/***/ (function(module, exports) {
+
+/**
+ * Export `uid`
+ */
+
+module.exports = uid;
+
+/**
+ * Create a `uid`
+ *
+ * @param {String} len
+ * @return {String} uid
+ */
+
+function uid(len) {
+  len = len || 7;
+  return Math.random().toString(35).substr(2, len);
+}
 
 /***/ }),
 
@@ -18795,6 +18788,13 @@ module.exports = ReactPropTypesSecret;
 
     return arKw;
 });
+
+/***/ }),
+
+/***/ "ju6e":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -19715,6 +19715,13 @@ module.exports = ReactPropTypesSecret;
 
 /***/ }),
 
+/***/ "oWKB":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "oo1B":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19878,6 +19885,13 @@ module.exports = ReactPropTypesSecret;
 
 /***/ }),
 
+/***/ "pSBE":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "pfs9":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20003,13 +20017,6 @@ module.exports = ReactPropTypesSecret;
 
 /***/ }),
 
-/***/ "r9V9":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "b913334b09a24da38d18973468c1b2f3.svg";
-
-/***/ }),
-
 /***/ "rIuo":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20087,6 +20094,13 @@ module.exports = __webpack_require__.p + "b913334b09a24da38d18973468c1b2f3.svg";
 
     return dv;
 });
+
+/***/ }),
+
+/***/ "rMhh":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -21386,6 +21400,13 @@ webpackContext.keys = function webpackContextKeys() {
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
 webpackContext.id = "uslO";
+
+/***/ }),
+
+/***/ "voiF":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
